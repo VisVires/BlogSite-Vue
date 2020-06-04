@@ -1,9 +1,10 @@
 <template>
   <div id="app">
     <NavBar></NavBar>
-    <div class="jumbotron"><!--JumboTron-->
-      <h1 id="headline"><strong></strong></h1>
-    </div><!--JumboTron-->
+      <div class="jumbotron">
+        <b-jumbotron>
+        </b-jumbotron>
+      </div>
     <b-container fluid>
       <b-row>
         <b-col sm="2">

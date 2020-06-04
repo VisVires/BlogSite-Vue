@@ -109,46 +109,46 @@ a:hover{
 }
 
 
-.list-group-item:hover{
+.sidebar-nav:hover{
 	text-decoration: bold;
 	color: #COFDFB;
 	background-color: #5D737E; 
 }
 
-.list-group-item.active{
+.sidebar-nav.active{
 	text-decoration: bold;
 	color: #FCFFFD;
 	background-color: #5D737E;
 	border-color: #FCFFFD; 
 }
 
-.list-group-item.active:hover{
+.sidebar-nav.active:hover{
 	text-decoration: bold;
 	color: #FCFFFD;
 	background-color: #5D737E;
 	border-color: #FCFFFD; 
 }
 
-.list-group-item{
+.sidebar-nav{
 	border: 1px solid #5D737E; 
 	background-color: #64B6AC;
 	color: #FCFFFD;
 }
 
-.list-group-item>a:hover{
+.sidebar-nav>a:hover{
 	border: 1px #5D737E;
 	background-color: #C0FDFB;
 	color: #5D737E;
 }
 
-.list-group-item:last-child{
+.sidebar-nav:last-child{
 	border-radius-bottom-left: 0px;
 	border-radius-bottom-right: 0px;
 	border-radius-bottom-left: 25px;
 	border-radius-bottom-right: 25px;
 }
 
-.list-group-item:first-child{
+.sidebar-nav:first-child{
 	border-radius-bottom-left: 0px;
 	border-radius-bottom-right: 0px;
 	border-radius-bottom-left: 25px;
@@ -198,9 +198,9 @@ pre>code{
 
 .jumbotron{
 	margin-bottom: 0px;
-    background-image: url(/images/background/crater.jpg);
+    background-image: url(../images/background/lofoten-2.jpg);
     background-size: cover;
-    min-height: 400px;
+    min-height: 550px;
     background-repeat: no-repeat;
     color: white;
     padding: 0px;

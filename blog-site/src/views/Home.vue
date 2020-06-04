@@ -22,6 +22,7 @@
         <li>AWS Certified Developer</li>
         <li>AWS Certified Solutions Architect</li>
       </ul>
+    <!--Current Projects-->
     <h5>Current Projects</h5>
     <p>I'm working on several small things right now, specifically:</p>
     <ul>
