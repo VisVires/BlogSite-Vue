@@ -2,10 +2,10 @@
   <div class="projects">
     <h1 style="text-align:left"><strong>NOTABLE PROJECTS</strong></h1>
     <hr class="style3">
-    <table class="table">
-      <tbody>
-        <tr>
-          <td>
+    <b-table-simple>
+      <b-tbody>
+        <b-tr>
+          <b-td>
             <h3><a href="https://github.com/VisVires/PinchTest">
             <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
             <strong> PinchTest Application </strong></a></h3>
@@ -20,10 +20,10 @@
               <li>Google+ OAuth2.0 Integration with Java</li>
               <li>Web Interface will be built using Google+ OAuth2.0 and NodeJS Express with Handlebars templating along with Bootstrap CSS3</li>
             </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>
+          </b-td>
+        </b-tr>
+        <b-tr>
+          <b-td>
             <h3><a href="https://github.com/VisVires/FTP_Server-Client">
             <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
             <strong> FTP Server and Client</strong></a></h3>
@@ -31,10 +31,10 @@
               <li>FTP server built in C with ability to send files to client as well as directory contents through sockets</li>
               <li>Simple FTP client constructed with Python that can request server directory as well as individual files</li>
             </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>
+          </b-td>
+        </b-tr>
+        <b-tr>
+          <b-td>
             <h3><a href="https://github.com/VisVires/UnityTowerDefense">
             <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
             <strong> Unity 2D Tower Defense </strong></a></h3>
@@ -50,10 +50,10 @@
                 <li>General refactoring of the code to improve bottlenecks</li>
               </ul>
             </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>
+          </b-td>
+        </b-tr>
+        <b-tr>
+          <b-td>
             <h3><a href="https://github.com/VisVires/HowToGuide">
             <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
             <strong> How To Guide </strong></a></h3>
@@ -62,10 +62,10 @@
               <li>Templating: handlebars.js, CSS3: Bootstrap, Framework: Node.js Express, Task Management: Grunt</li>
               <li>Originally hosted on AWS EC2 Instance and will rehost and supply url at request</li>
             </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>
+          </b-td>
+        </b-tr>
+        <b-tr>
+          <b-td>
             <h3><a href="https://github.com/VisVires/blogSite">
             <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
             <strong> Blog Site v1 </strong></a></h3>
@@ -77,10 +77,10 @@
               <li>FB social commenting integration</li>
               <li>Hosted using AWS EC2 t2.nano instance, Route53 DNS service, and Cloudflare for CDN</li>
             </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>
+          </b-td>
+        </b-tr>
+        <b-tr>
+          <b-td>
             <h3><a href="https://github.com/VisVires/blogSite">
             <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
             <strong> Blog Site v2 </strong></a></h3>
@@ -92,10 +92,10 @@
               <li>FB social commenting integration</li>
               <li>Hosted using AWS EC2 t2.nano instance, Route53 DNS service, and Cloudflare for CDN</li>
             </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>
+          </b-td>
+        </b-tr>
+        <b-tr>
+          <b-td>
             <h3><a href="https://github.com/VisVires/smallShell">
               <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
               <strong> Small Shell </strong></a></h3>
@@ -104,10 +104,10 @@
               <li>Programmed in C to change directories, send processes to the background, bring background processes forward as well and exit.</li>
               <li>Originally hosted on AWS EC2 Instance and will ehost and supply url at request</li>
             </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>
+          </b-td>
+        </b-tr>
+        <b-tr>
+          <b-td>
             <h3><a href="https://github.com/VisVires/GainzTheGame">
               <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
               <strong> Gainz The Game </strong></a></h3>
@@ -116,10 +116,10 @@
               <li>Maze built on Linked List data structure with individual links facing north, south, east, or west</li>
               <li>Individual room types defined by abstract Room class</li>
             </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>
+          </b-td>
+        </b-tr>
+        <b-tr>
+          <b-td>
             <h3><a href="https://github.com/VisVires/VisVires.github.io">
               <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
               <strong> Vis Vires Fitness Website </strong></a></h3>
@@ -128,9 +128,9 @@
                 <li>Previously Hosted on Github Pages with SSL done by Cloudflare</li>
                 <li>No longer hosted</li>
             </ul>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+          </b-td>
+        </b-tr>
+      </b-tbody>
+    </b-table-simple>
   </div>
 </template>

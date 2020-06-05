@@ -109,51 +109,58 @@ a:hover{
 }
 
 
-.sidebar-nav:hover{
+.list-group-item:hover{
 	text-decoration: bold;
 	color: #COFDFB;
 	background-color: #5D737E; 
 }
 
-.sidebar-nav.active{
+.list-group-item.active{
 	text-decoration: bold;
 	color: #FCFFFD;
 	background-color: #5D737E;
 	border-color: #FCFFFD; 
 }
 
-.sidebar-nav.active:hover{
+.list-group-item.active:hover{
 	text-decoration: bold;
 	color: #FCFFFD;
 	background-color: #5D737E;
 	border-color: #FCFFFD; 
 }
 
-.sidebar-nav{
+.list-group-item{
 	border: 1px solid #5D737E; 
 	background-color: #64B6AC;
 	color: #FCFFFD;
 }
 
-.sidebar-nav>a:hover{
+.list-group-item>a:hover{
 	border: 1px #5D737E;
 	background-color: #C0FDFB;
 	color: #5D737E;
 }
 
-.sidebar-nav:last-child{
+.list-group-item>a{
+  border: 1px #5D737E;
+  color: #FCFFFD;
+}
+
+.list-group-item:last-child{
 	border-radius-bottom-left: 0px;
 	border-radius-bottom-right: 0px;
 	border-radius-bottom-left: 25px;
 	border-radius-bottom-right: 25px;
 }
 
-.sidebar-nav:first-child{
+.list-group-item:first-child{
 	border-radius-bottom-left: 0px;
 	border-radius-bottom-right: 0px;
 	border-radius-bottom-left: 25px;
 	border-radius-bottom-right: 25px;
 }
+
+
 
 #sidebar{
 	margin-top: 8px;
