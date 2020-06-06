@@ -11,7 +11,6 @@
             <b-td>
               <h4><em> Bachelor of Science : Computer Science </em></h4>
               <h4><strong> OREGON STATE UNIVERSITY </strong></h4>
-              <h5> Expected Graduation: December 2017</h5>
             </b-td>
             <b-td class="col-date">
               <h5>Sept 2014 - Dec 2017</h5>
