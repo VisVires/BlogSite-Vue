@@ -3,17 +3,27 @@ package com.blogsite.blogvue;
 import java.util.ArrayList;
 import java.util.Date;
 
-public class BlogPost {
+public abstract class BlogPost {
 	
+	private String postTitle;
 	private ArrayList<String> text;
 	private ArrayList<String> images;
 	private Date postDate;
 	
-	public BlogPost(ArrayList<String> text, ArrayList<String> images, Date postDate) {
+	public BlogPost(String postTitle, ArrayList<String> text, ArrayList<String> images, Date postDate) {
 		super();
+		this.postTitle = postTitle;
 		this.text = text;
 		this.images = images;
 		this.postDate = postDate;
+	}
+	
+	public String getPostTitle() {
+		return postTitle;
+	}
+
+	public void setPostTitle(String postTitle) {
+		this.postTitle = postTitle;
 	}
 
 	public ArrayList<String> getText() {
