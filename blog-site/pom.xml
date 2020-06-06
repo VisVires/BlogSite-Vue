@@ -5,8 +5,8 @@
 	<artifactId>blog-site</artifactId>
 
 	<parent>
-		<groupId>me.blogsite</groupId>
-		<artifactId>blog-site-vue</artifactId>
+		<groupId>com.blogsite</groupId>
+		<artifactId>blog-vue</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
@@ -48,12 +48,12 @@
 					</execution>
 					<!-- Build and minify static files -->
 					<execution>
-						<id>npm run serve</id>
+						<id>npm run build</id>
 						<goals>
 							<goal>npm</goal>
 						</goals>
 						<configuration>
-							<arguments>run serve</arguments>
+							<arguments>run build</arguments>
             			</configuration>
 					</execution>
 					<!-- Run Unit tests with Jest 
