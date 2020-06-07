@@ -1,18 +1,22 @@
 package com.blogsite.blogvue;
 
-import java.util.ArrayList;
 import java.util.Date;
+
+import org.springframework.data.annotation.Id;
 
 public class Education {
 	
+	
+	@Id
+	private String schoolId;
 	private String schoolName;
 	private Location location;
 	private Date startDate;
 	private Date endDate;
-	private ArrayList<String> degreeName;
+	private String degreeName;
 	private String concentration;
 	
-	public Education(String schoolName, Location location, Date startDate, Date endDate, ArrayList<String> degreeName,
+	public Education(String schoolName, Location location, Date startDate, Date endDate, String degreeName,
 			String concentration) {
 		super();
 		this.schoolName = schoolName;
@@ -55,11 +59,11 @@ public class Education {
 		this.endDate = endDate;
 	}
 
-	public ArrayList<String> getDegreeName() {
+	public String getDegreeName() {
 		return degreeName;
 	}
 
-	public void setDegreeName(ArrayList<String> degreeName) {
+	public void setDegreeName(String degreeName) {
 		this.degreeName = degreeName;
 	}
 

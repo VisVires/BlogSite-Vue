@@ -3,9 +3,14 @@ package com.blogsite.blogvue;
 import java.net.URL;
 import java.util.ArrayList;
 
+import org.springframework.data.annotation.Id;
+
 
 public class Project {
 
+	
+	@Id
+	private String projectId;
 	private String projectName;
 	private String purpose;
 	private URL repoAddress;

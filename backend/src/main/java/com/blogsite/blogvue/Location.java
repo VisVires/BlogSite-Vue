@@ -1,8 +1,11 @@
 package com.blogsite.blogvue;
 
+import org.springframework.data.annotation.Id;
 
 public class Location {
 	
+	@Id
+	private String locationId;
 	private String city;
 	private String state;
 	

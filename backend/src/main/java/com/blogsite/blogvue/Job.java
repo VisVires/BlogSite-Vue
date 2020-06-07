@@ -3,9 +3,12 @@ package com.blogsite.blogvue;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.springframework.data.annotation.Id;
+
 public class Job {
 	
-	
+	@Id
+	private String jobId;
 	private String companyName;
 	private String position; 
 	private Date startDate;

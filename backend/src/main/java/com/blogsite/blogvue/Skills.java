@@ -2,10 +2,14 @@ package com.blogsite.blogvue;
 
 import java.util.ArrayList;
 
+import org.springframework.data.annotation.Id;
+
 public class Skills {
 	
-	ArrayList<String> techSkills;
-	ArrayList<String> softSkills;
+	@Id
+	private String skillsId;
+	private ArrayList<String> techSkills;
+	private ArrayList<String> softSkills;
 	
 	public Skills(ArrayList<String> techSkills, ArrayList<String> softSkills) {
 		super();

@@ -3,8 +3,12 @@ package com.blogsite.blogvue;
 import java.util.ArrayList;
 import java.util.Date;
 
+import org.springframework.data.annotation.Id;
+
 public abstract class BlogPost {
 	
+	@Id
+	private String blogId;
 	private String postTitle;
 	private ArrayList<String> text;
 	private ArrayList<String> images;
