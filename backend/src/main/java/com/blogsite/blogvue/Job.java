@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+@Document(collection = "jobs")
 public class Job {
 	
 	@Id
@@ -18,13 +20,14 @@ public class Job {
 	private ArrayList<String> accomplishments;
 	private ArrayList<String> technologies;
 	
-	public Job(String companyName, String position, Date startDate, Date endDate, ArrayList<String> responsibilities,
-			ArrayList<String> accomplishments, ArrayList<String> technologies, Location location) {
+	public Job(String companyName, String position, Date startDate, Date endDate, Location location, ArrayList<String> responsibilities,
+			ArrayList<String> accomplishments, ArrayList<String> technologies) {
 		super();
 		this.companyName = companyName;
 		this.position = position;
 		this.startDate = startDate;
 		this.endDate = endDate;
+		this.location = location;
 		this.responsibilities = responsibilities;
 		this.accomplishments = accomplishments;
 		this.technologies = technologies;
