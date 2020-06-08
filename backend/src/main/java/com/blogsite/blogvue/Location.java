@@ -14,6 +14,11 @@ public class Location {
 		this.city = city;
 		this.state = state;
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("%s, %s", city, state);
+	}
 
 	public String getCity() {
 		return city;

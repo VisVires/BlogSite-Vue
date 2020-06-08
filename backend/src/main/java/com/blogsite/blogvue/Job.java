@@ -29,45 +29,59 @@ public class Job {
 		this.accomplishments = accomplishments;
 		this.technologies = technologies;
 	}
+	
 	public String getCompanyName() {
 		return companyName;
 	}
+	
 	public void setCompanyName(String companyName) {
 		this.companyName = companyName;
 	}
+	
 	public String getPosition() {
 		return position;
 	}
+	
 	public void setPosition(String position) {
 		this.position = position;
 	}
+	
 	public Date getStartDate() {
 		return startDate;
 	}
+	
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
+	
 	public Date getEndDate() {
 		return endDate;
 	}
+	
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
+	
 	public ArrayList<String> getResponsibilities() {
 		return responsibilities;
 	}
+	
 	public void setResponsibilities(ArrayList<String> responsibilities) {
 		this.responsibilities = responsibilities;
 	}
+	
 	public ArrayList<String> getAccomplishments() {
 		return accomplishments;
 	}
+	
 	public void setAccomplishments(ArrayList<String> accomplishments) {
 		this.accomplishments = accomplishments;
 	}
+	
 	public ArrayList<String> getTechnologies() {
 		return technologies;
 	}
+	
 	public void setTechnologies(ArrayList<String> technologies) {
 		this.technologies = technologies;
 	}
@@ -75,8 +89,8 @@ public class Job {
 	public Location getLocation() {
 		return location;
 	}
+	
 	public void setLocation(Location location) {
 		this.location = location;
 	}
-	
 }

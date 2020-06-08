@@ -23,6 +23,13 @@ public class Project {
 		this.repoAddress = repoAddress;
 		this.attributes = attributes;
 	}
+	
+	@Override
+	public String toString() {
+		return String.format(
+		        "Project[projectId=%s, projectName='%s', purpose='%s', repoAddress='%s']",
+		        projectId, projectName, purpose, repoAddress.toString());
+	}
 
 	public String getProjectName() {
 		return projectName;
