@@ -139,7 +139,7 @@ public class BlogVueApplication implements CommandLineRunner {
 		Date uwEnd = new GregorianCalendar(2008, Calendar.JUNE, 13).getTime();
 	
 		Location uwLocation = new Location("Seattle", "WA");
-		Location osuLocation = new Location("Corvalis", "OR");
+		Location osuLocation = new Location("Corvallis", "OR");
 		Location kellerLocation = new Location("Federal Way", "WA");
 		
 		degreeRepository.save(new Degree("Oregon State University", osuLocation, osuStart, 

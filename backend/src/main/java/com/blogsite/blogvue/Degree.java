@@ -19,17 +19,7 @@ public class Degree {
 	private String concentration;
 	private Double average;
 	
-	public Degree(String schoolName, Location location, Date startDate, Date endDate, String degreeName,
-			String concentration, Double average) {
-		super();
-		this.schoolName = schoolName;
-		this.location = location;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.degreeName = degreeName;
-		this.concentration = concentration;
-		this.average = average;
-	}
+	public Degree() {}
 	
 	public Degree(String schoolName, Location location, Date startDate, Date endDate, String degreeName,
 			Double average) {
@@ -39,6 +29,18 @@ public class Degree {
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.degreeName = degreeName;
+		this.average = average;
+	}
+	
+	public Degree(String schoolName, Location location, Date startDate, Date endDate, String degreeName,
+			String concentration, Double average) {
+		super();
+		this.schoolName = schoolName;
+		this.location = location;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.degreeName = degreeName;
+		this.concentration = concentration;
 		this.average = average;
 	}
 	
