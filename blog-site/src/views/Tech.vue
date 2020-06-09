@@ -8,6 +8,7 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-8">
+          <Quote></Quote>
         </div>
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
           <div class="sidebar-module sidebar-module-inset">
@@ -26,3 +27,14 @@
     </div>
   </div>
 </template>
+
+<script>
+import Quote from '@/components/Quote.vue'
+
+export default {
+  name: 'TechBlog',
+  components: {
+    Quote
+  }
+}
+</script>

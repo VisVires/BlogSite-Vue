@@ -8,6 +8,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +17,7 @@ import org.springframework.boot.CommandLineRunner;
 
 @SpringBootApplication
 public class BlogVueApplication implements CommandLineRunner {
+	Logger logger = LoggerFactory.getLogger(BlogVueApplication.class);
 	
 	@Autowired
 	private JobRepository jobRepository;
@@ -24,6 +27,9 @@ public class BlogVueApplication implements CommandLineRunner {
 	private DegreeRepository degreeRepository;
 	@Autowired
 	private TechBlogRepository techBlogRepository;
+	@Autowired
+	private QuoteRepository quoteRepository;
+
 
 	
 	public static void main(String[] args) {
@@ -39,6 +45,7 @@ public class BlogVueApplication implements CommandLineRunner {
 		loadJobInfo();
 		loadProjectInfo();
 		loadDegreeInfo();
+		loadQuotes();
 		loadBlogInfo();
 	}
 
@@ -47,6 +54,7 @@ public class BlogVueApplication implements CommandLineRunner {
 		projectRepository.deleteAll();
 		degreeRepository.deleteAll();
 		techBlogRepository.deleteAll();
+		quoteRepository.deleteAll();
 	}
 	
 	public void loadJobInfo() {
@@ -224,5 +232,12 @@ public class BlogVueApplication implements CommandLineRunner {
 	
 	public void loadBlogInfo() {
 		
+	}
+	
+	public void loadQuotes() {
+		quoteRepository.save(new Quote("Beta is latin for still doesn't work", "Unknown", null));
+		quoteRepository.save(new Quote("Debugging is twice as hard as writing the code in the first place. "
+				+ "Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.", "Brian W. Kernighan", null));
+		quoteRepository.save(new Quote("If computers get too powerful, we can organize them into committees. That'll do them in", "Unknown", null));
 	}
 }

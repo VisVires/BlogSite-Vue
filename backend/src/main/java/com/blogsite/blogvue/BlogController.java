@@ -1,12 +1,17 @@
 package com.blogsite.blogvue;
 
+import java.util.Calendar;
 import java.util.List;
+import java.util.Random;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class BlogController {
+	Logger LOG = LoggerFactory.getLogger(BlogController.class);
 	
 	@Autowired
 	private JobRepository jobRepository;
@@ -16,6 +21,8 @@ public class BlogController {
 	private DegreeRepository degreeRepository;
 	//@Autowired
 	//private BlogRepository blogRepository;
+	@Autowired
+	private QuoteRepository quoteRepository;
 	
 	@CrossOrigin
 	@GetMapping("/jobs")
@@ -33,6 +40,19 @@ public class BlogController {
 	@GetMapping("/education")
 	public List<Degree> getEducation() {
 		return degreeRepository.findAll();
+	}
+	
+	@CrossOrigin
+	@GetMapping("/quote")
+	public Quote getRandomQuote() {
+		List<Quote> quotes = quoteRepository.findAll();
+		// get week number
+		Calendar cal = Calendar.getInstance();
+		int weekNum  = cal.get(Calendar.WEEK_OF_YEAR);
+		Random rand = new Random(weekNum);
+		int r = rand.ints(0, quotes.size()).findFirst().getAsInt();
+		LOG.info(String.format("The quote for the week is: %s", quotes.get(r).getQuote()));
+		return quotes.get(r);
 	}
 	
 	@CrossOrigin

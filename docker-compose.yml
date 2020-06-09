@@ -8,8 +8,8 @@ services:
     container_name: 'blog-mongo' 
     environment:
       MONGO_INITDB_DATABASE: mongoDatabase
-      MONGO_INITDB_ROOT_USERNAME: mongoUser
-      MONGO_INITDB_ROOT_PASSWORD: mongoPass
+      #MONGO_INITDB_ROOT_USERNAME: mongoUser
+      #MONGO_INITDB_ROOT_PASSWORD: mongoPass
     ports:
       - 27017:27017
     volumes:
