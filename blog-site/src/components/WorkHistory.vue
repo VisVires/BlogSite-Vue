@@ -8,14 +8,16 @@
               <h3><strong> {{ job.position }} </strong></h3>
               <h4><em> {{job.companyName }} </em></h4>
               <ul class="bullets">
-                <li>Backend software development engineer with focus on creating and managing tools for a variety of tasks including:</li>
-                  <ul class="bullets">
-                    <li>Big Data Managment, Tooling, and Migration</li>
-                    <li>RESTful API development</li>
-                    <li>Operational Monitoring and Resource Management</li>
+                <li> <strong> {{ job.jobFunction }} </strong> </li>
+                  <ul v-for="(attribute, index) in job.attributes" class="bullets" :key="index">
+                    <li>{{ attribute }}</li>
                   </ul>
-                <li>Technologies include: Ansible, AWS Development/Cloud Tools, NoSQL and Graph Based data management, Jenkins continuous integration, Docker based Deployment/Containerization, Vue.js, Spring Boot, Maven, Git etc.
-                </li>
+              </ul>
+              <ul v-for="(accomplishment, index) in job.accomplishments" :key="index" class="bullets">
+                <li>{{ accomplishment }}</li>
+              </ul>
+              <ul>
+                <li v-if="job.technologies">Technologies include: {{ job.technologies }} </li>
               </ul>
             </b-td>
             <b-td class="col-date">

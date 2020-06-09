@@ -7,7 +7,6 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -24,7 +23,7 @@ public class BlogVueApplication implements CommandLineRunner {
 	@Autowired
 	private DegreeRepository degreeRepository;
 	@Autowired
-	private BlogRepository blogRepository;
+	private TechBlogRepository techBlogRepository;
 
 	
 	public static void main(String[] args) {
@@ -47,7 +46,7 @@ public class BlogVueApplication implements CommandLineRunner {
 		jobRepository.deleteAll();
 		projectRepository.deleteAll();
 		degreeRepository.deleteAll();
-		blogRepository.deleteAll();
+		techBlogRepository.deleteAll();
 	}
 	
 	public void loadJobInfo() {
@@ -97,10 +96,10 @@ public class BlogVueApplication implements CommandLineRunner {
 				null, visViresAccomplishments, null));
 		
 		jobRepository.save(new Job("Simulab Corporation", "Account Specialist", simulabStart, simulabEnd, 
-				seattle, "", null, simulabAccomplishments, null));
+				seattle, "Introducing and managing immersive training programs for a variety of procedures in hospitals and universities nationwide", null, simulabAccomplishments, null));
 		
 		jobRepository.save(new Job("24 Hour Fitness", "Master Personal Trainer", twentyFourStart, twentyFourEnd, 
-				seattle, "", null, twentyFourAccomplishments, null));
+				seattle, "Planning and managing fitness, and nutritional programming for working professionals", null, twentyFourAccomplishments, null));
 		
 	}
 	
