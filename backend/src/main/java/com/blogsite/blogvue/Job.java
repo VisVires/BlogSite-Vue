@@ -16,19 +16,21 @@ public class Job {
 	private Date startDate;
 	private Date endDate;
 	private Location location;
-	private ArrayList<String> responsibilities;
+	private String jobFunction;
+	private ArrayList<String> attributes;
 	private ArrayList<String> accomplishments;
-	private ArrayList<String> technologies;
+	private String technologies;
 	
-	public Job(String companyName, String position, Date startDate, Date endDate, Location location, ArrayList<String> responsibilities,
-			ArrayList<String> accomplishments, ArrayList<String> technologies) {
+	public Job(String companyName, String position, Date startDate, Date endDate, Location location, String jobFunction, ArrayList<String> attributes,
+			ArrayList<String> accomplishments, String technologies) {
 		super();
 		this.companyName = companyName;
 		this.position = position;
 		this.startDate = startDate;
 		this.endDate = endDate;
 		this.location = location;
-		this.responsibilities = responsibilities;
+		this.jobFunction = jobFunction;
+		this.attributes = attributes;
 		this.accomplishments = accomplishments;
 		this.technologies = technologies;
 	}
@@ -65,12 +67,20 @@ public class Job {
 		this.endDate = endDate;
 	}
 	
-	public ArrayList<String> getResponsibilities() {
-		return responsibilities;
+	public String getJobFunction() {
+		return jobFunction;
+	}
+
+	public void setJobFunction(String jobFunction) {
+		this.jobFunction = jobFunction;
+	}
+
+	public ArrayList<String> getAttributes() {
+		return attributes;
 	}
 	
-	public void setResponsibilities(ArrayList<String> responsibilities) {
-		this.responsibilities = responsibilities;
+	public void setAttributes(ArrayList<String> attributes) {
+		this.attributes = attributes;
 	}
 	
 	public ArrayList<String> getAccomplishments() {
@@ -81,11 +91,11 @@ public class Job {
 		this.accomplishments = accomplishments;
 	}
 	
-	public ArrayList<String> getTechnologies() {
+	public String getTechnologies() {
 		return technologies;
 	}
 	
-	public void setTechnologies(ArrayList<String> technologies) {
+	public void setTechnologies(String technologies) {
 		this.technologies = technologies;
 	}
 	

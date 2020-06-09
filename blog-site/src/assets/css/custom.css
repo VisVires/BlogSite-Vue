@@ -94,7 +94,7 @@ code{
 
 p {
 	font-family: 'Open Sans', Sans-Serif;
-	font-size: 125%;
+	font-size: 100%;
 }
 
 .contact p {
@@ -245,11 +245,13 @@ footer {
 
 
 #skills_table{
-	font-size: 125%;
+	font-size: 100%;
+  line-height: 1.0;
 }
 
 .bullets li{
-	font-size: 150%;
+	font-size: 100%;
+  line-height: 1.0;
 }
 
 
@@ -258,7 +260,7 @@ footer {
 }
 
 .skill_head{
-	font-size: 200%; 
+	font-size: 125%; 
 }
 
 

@@ -12,6 +12,9 @@
             <ul class="bullets">
               <li>{{ project.purpose }}</li>
             </ul>
+            <ul class="bullets" v-for="(attribute, index) in project.attributes" :key="index">
+              <li> {{ attribute }} </li>
+            </ul>
           </b-td>
         </b-tr>
       </b-tbody>
