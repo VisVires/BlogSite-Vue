@@ -1,6 +1,12 @@
 .DS_Store
 node_modules
+node
 /dist
+/target
+.settings/*
+.project
+.classpath
+
 
 # local env files
 .env.local

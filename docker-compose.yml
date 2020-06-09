@@ -1,0 +1,20 @@
+version: '3.7'
+
+services:
+  mongodb_container:
+    image: mongo:latest
+    env_file:
+        - ./mongo.env
+    container_name: 'blog-mongo' 
+    environment:
+      MONGO_INITDB_DATABASE: mongoDatabase
+      MONGO_INITDB_ROOT_USERNAME: mongoUser
+      MONGO_INITDB_ROOT_PASSWORD: mongoPass
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data_container:/data/db
+
+volumes:
+  mongodb_data_container:
+

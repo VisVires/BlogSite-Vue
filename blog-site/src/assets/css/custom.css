@@ -64,6 +64,13 @@ code{
 	background-color: #5D737E;
 }
 
+
+.navbar .navbar-light .fixed-top .navbar-expand {
+  background-color: #DAFFEF;
+  min-height: 40px;
+  position: fixed;
+}
+
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
 	background-color: #64B6AC;
 }
@@ -87,12 +94,12 @@ code{
 
 p {
 	font-family: 'Open Sans', Sans-Serif;
-	font-size: 125%;
+	font-size: 100%;
 }
 
 .contact p {
 	text-decoration: bold;
-	font-size: 150%;
+	font-size: 100%;
 }
 
 a{
@@ -141,6 +148,11 @@ a:hover{
 	color: #5D737E;
 }
 
+.list-group-item>a{
+  border: 1px #5D737E;
+  color: #FCFFFD;
+}
+
 .list-group-item:last-child{
 	border-radius-bottom-left: 0px;
 	border-radius-bottom-right: 0px;
@@ -154,6 +166,8 @@ a:hover{
 	border-radius-bottom-left: 25px;
 	border-radius-bottom-right: 25px;
 }
+
+
 
 #sidebar{
 	margin-top: 8px;
@@ -198,9 +212,9 @@ pre>code{
 
 .jumbotron{
 	margin-bottom: 0px;
-    background-image: url(/images/background/crater.jpg);
+    background-image: url(../images/background/lofoten-2.jpg);
     background-size: cover;
-    min-height: 400px;
+    min-height: 550px;
     background-repeat: no-repeat;
     color: white;
     padding: 0px;
@@ -231,11 +245,13 @@ footer {
 
 
 #skills_table{
-	font-size: 125%;
+	font-size: 100%;
+  line-height: 1.0;
 }
 
 .bullets li{
-	font-size: 150%;
+	font-size: 100%;
+  line-height: 1.0;
 }
 
 
@@ -244,7 +260,7 @@ footer {
 }
 
 .skill_head{
-	font-size: 200%; 
+	font-size: 125%; 
 }
 
 
