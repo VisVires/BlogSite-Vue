@@ -24,8 +24,9 @@ export default {
     }
   },
   mounted () {
+    var baseUrl = process.env.VUE_APP_BASE_URL
     axios
-      .get('http://localhost:9090/quote')
+      .get(baseUrl + '/quote')
       .then(response => {
         this.quote = response.data
       })

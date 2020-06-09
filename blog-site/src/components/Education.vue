@@ -33,8 +33,9 @@ export default {
     }
   },
   mounted () {
+    var baseUrl = process.env.VUE_APP_BASE_URL
     axios
-      .get('http://localhost:9090/education')
+      .get(baseUrl + '/education')
       .then(response => {
         this.degrees = response.data
       }

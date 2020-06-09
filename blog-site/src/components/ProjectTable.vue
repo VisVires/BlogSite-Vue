@@ -34,8 +34,9 @@ export default {
     }
   },
   mounted () {
+    var baseUrl = process.env.VUE_APP_BASE_URL
     axios
-      .get('http://localhost:9090/projects')
+      .get(baseUrl + '/projects')
       .then(response => {
         this.projects = response.data
       })
