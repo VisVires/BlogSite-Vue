@@ -64,6 +64,13 @@ code{
 	background-color: #5D737E;
 }
 
+
+.navbar .navbar-light .fixed-top .navbar-expand {
+  background-color: #DAFFEF;
+  min-height: 40px;
+  position: fixed;
+}
+
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover{
 	background-color: #64B6AC;
 }

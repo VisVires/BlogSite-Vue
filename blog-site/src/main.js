@@ -18,6 +18,19 @@ Vue.component('font-awesome-icon', FontAwesomeIcon)
 
 Vue.config.productionTip = false
 
+Vue.mixin({
+  methods: {
+    convertDate: function (item) {
+      if (item === null) {
+        return 'Current'
+      }
+      var date = new Date(item)
+      var ms = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+      return ms[date.getMonth()] + ' ' + date.getFullYear()
+    }
+  }
+})
+
 new Vue({
   router,
   render: h => h(App)

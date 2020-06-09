@@ -1,7 +1,6 @@
 <template>
   <div class="footer">
     <footer class="page-footer">
-      <b-pagination-nav :link-gen="linkGen" :number-of-pages="5" use-router></b-pagination-nav>
       <div class="contact">
       <h4 style="text-align: left"><strong>CONTACT ME</strong></h4>
         <p class="footer">
@@ -32,9 +31,8 @@
 <script>
 export default {
   name: 'Footer',
-  methods: {
-    linkGen (pageNum) {
-      return pageNum === 1 ? '?' : `?page=${pageNum}`
+  data () {
+    return {
     }
   }
 }

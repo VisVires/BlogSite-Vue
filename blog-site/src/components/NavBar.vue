@@ -1,6 +1,6 @@
 <template>
-  <div class="navbar" id="navbar">
-    <b-navbar>
+  <div class="navbar">
+    <b-navbar sticky>
       <b-navbar-brand to="/">WILLIAM GEORGE</b-navbar-brand>
       <b-navbar-nav>
         <b-nav-item to="/">ABOUT ME</b-nav-item>
