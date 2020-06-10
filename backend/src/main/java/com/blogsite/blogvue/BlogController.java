@@ -56,6 +56,23 @@ public class BlogController {
 	}
 	
 	@CrossOrigin
+	@PostMapping("/quote")
+	public String addQuote(@RequestBody Quote quote) {
+		LOG.info(String.format("Adding: %s", quote.getQuote())); 
+		quoteRepository.save(quote);
+		return quote.getQuote();
+	}
+	
+	@CrossOrigin
+	@PostMapping("/quotes")
+	public String addQuotes(@RequestBody List<Quote> quotes) {
+		LOG.info(String.format("Adding: %d Quotes", quotes.size())); 
+		quoteRepository.saveAll(quotes);
+		return String.format("Added: %d Quotes", quotes.size()); 
+	}
+	
+	
+	@CrossOrigin
 	@GetMapping("/techBlog")
 	public String getTechBlog() {
 		return "Tech Blog";
