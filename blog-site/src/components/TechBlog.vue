@@ -30,8 +30,7 @@ export default {
       .get(baseUrl + '/techBlog')
       .then(response => {
         this.post = response.data
-        var clean = dompurify.sanitize(this.post.text)
-        this.input = marked(clean)
+        this.input = dompurify.sanitize(marked(this.post.text))
       })
   }
 }
