@@ -19,8 +19,8 @@ public class BlogController {
 	private ProjectRepository projectRepository;
 	@Autowired
 	private DegreeRepository degreeRepository;
-	//@Autowired
-	//private BlogRepository blogRepository;
+	@Autowired
+	private TechBlogRepository techBlogRepository;
 	@Autowired
 	private QuoteRepository quoteRepository;
 	
