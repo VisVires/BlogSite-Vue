@@ -1,6 +1,7 @@
 <template>
   <div id="tech-blog">
-    <div v-html="compiledMarkdown">These are words</div>
+    <h2>{{ post.postTitle }}</h2>
+    <div v-html="input"></div>
   </div>
 </template>
 
@@ -8,18 +9,19 @@
 
 import marked from 'marked'
 import axios from 'axios'
+import dompurify from 'dompurify'
 
 export default {
   name: 'TechBlog',
   data () {
     return {
-      input: ' ## _hello_',
-      marked: []
+      input: '',
+      post: {}
     }
   },
   computed: {
     compiledMarkdown: function () {
-      return marked(this.input)
+      return marked()
     }
   },
   mounted () {
@@ -27,7 +29,9 @@ export default {
     axios
       .get(baseUrl + '/techBlog')
       .then(response => {
-        this.marked = response.data
+        this.post = response.data
+        var clean = dompurify.sanitize(this.post.text)
+        this.input = marked(clean)
       })
   }
 }

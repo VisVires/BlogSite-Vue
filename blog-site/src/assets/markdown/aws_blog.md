@@ -29,7 +29,7 @@ For each of these I will do a brief overview of the design principles and the be
 
 #### Best Practices
 
-*   Prepare
+##### Prepare
 
 *   Have shared goals and understanding across every part of the business
 *   Design your system to monitor all aspects of the application, infrastructure and customer experience
@@ -37,14 +37,14 @@ For each of these I will do a brief overview of the design principles and the be
 *   Be sure to have sufficient trained personnel to support the workloads
 *   Test and practice response to operational events and failures
 
-*   Operate
+##### Operate
 
 *   Measure operational health and success by the achievement of business and customer outcomes using custom dashboards to manage expectations and inform of normal operations
 *   Prioritize responses based on business and customer impact
 *   Determine cause of unplanned events and update procedures to facilitate for them
 *   Routine and responses to unplanned events should be automated
 
-*   Evolve
+##### Evolve
 
 *   Dedicate work cycles to continuous incremental improvements
 *   Evaluate and prioritize improvement opportunities in both workload and operations procedures
@@ -106,20 +106,20 @@ For each of these I will do a brief overview of the design principles and the be
 
 *   Select multiple solutions from the different resource types to improve performance. The four main resource types are:
 
-*   Compute – varies based on application design, usage patterns and configuration settings and available in three different forms:
+##### Compute – varies based on application design, usage patterns and configuration settings and available in three different forms:
 
 *   Instances – virtualized servers
 *   Containers – resource isolated processes using operating system virtualization
 *   Functions – abstracted execution environment from the code
 
-*   Storage – varies based on access methods, patterns of access, throughput, frequency of access, update frequency, availability and durability constraints.
-*   Database – varies based on availability, consistency, partition tolerance, latency, durability, scalability and query capability. Available in 3 forms:
+##### Storage – varies based on access methods, patterns of access, throughput, frequency of access, update frequency, availability and durability constraints.
+##### Database – varies based on availability, consistency, partition tolerance, latency, durability, scalability and query capability. Available in 3 forms:
 
 *   Managed Relational Databases – Database with tables, rows and columns with relational backbone
 *   NoSQL Databases – key, value based pairs
 *   Data Warehouses – means of changing the types and number of nodes as performance and capacity needs change
 
-*   Network – Varies based on latency and throughput requirements where physical constraints such as resource placement and location play big factors.
+##### Network – Varies based on latency and throughput requirements where physical constraints such as resource placement and location play big factors.
 
 *   Review architecture and performance and understand where bottlenecks are so you can look for tools to alleviate those constraints
 *   Set monitors to raise alarms when thresholds are reached and set off automated triggers to work around poorly performing components

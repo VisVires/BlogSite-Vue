@@ -8,8 +8,8 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "tech_blog")
 public class TechBlog extends BlogPost {
 	
-	public TechBlog(String postTitle, ArrayList<String> text, ArrayList<String> images, Date postDate) {
-		super(postTitle, text, images, postDate);
+	public TechBlog(String postTitle, String text, Date postDate) {
+		super(postTitle, text, postDate);
 		// TODO Auto-generated constructor stub
 	}
 

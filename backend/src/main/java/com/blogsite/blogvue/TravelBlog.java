@@ -5,8 +5,8 @@ import java.util.Date;
 
 public class TravelBlog extends BlogPost {
 	
-	public TravelBlog(String postTitle, ArrayList<String> text, ArrayList<String> images, Date postDate) {
-		super(postTitle, text, images, postDate);
+	public TravelBlog(String postTitle, String text, Date postDate) {
+		super(postTitle, text, postDate);
 		// TODO Auto-generated constructor stub
 	}
 

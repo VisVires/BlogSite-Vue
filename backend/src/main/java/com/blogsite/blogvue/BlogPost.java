@@ -10,15 +10,13 @@ public abstract class BlogPost {
 	@Id
 	private String blogId;
 	private String postTitle;
-	private ArrayList<String> text;
-	private ArrayList<String> images;
+	private String text;
 	private Date postDate;
 	
-	public BlogPost(String postTitle, ArrayList<String> text, ArrayList<String> images, Date postDate) {
+	public BlogPost(String postTitle, String text, Date postDate) {
 		super();
 		this.postTitle = postTitle;
 		this.text = text;
-		this.images = images;
 		this.postDate = postDate;
 	}
 	
@@ -30,20 +28,12 @@ public abstract class BlogPost {
 		this.postTitle = postTitle;
 	}
 
-	public ArrayList<String> getText() {
+	public String getText() {
 		return text;
 	}
 
-	public void setText(ArrayList<String> text) {
+	public void setText(String text) {
 		this.text = text;
-	}
-
-	public ArrayList<String> getImages() {
-		return images;
-	}
-
-	public void setImages(ArrayList<String> images) {
-		this.images = images;
 	}
 
 	public Date getPostDate() {

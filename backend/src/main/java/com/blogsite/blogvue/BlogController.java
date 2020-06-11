@@ -74,9 +74,18 @@ public class BlogController {
 	
 	@CrossOrigin
 	@GetMapping("/techBlog")
-	public String getTechBlog() {
-		return "Tech Blog";
+	public TechBlog getTechBlog() {
+		return techBlogRepository.findAll().get(0);
 	}
+	
+	@CrossOrigin
+	@PostMapping("/techBlog")
+	public TechBlog writeTechPost(@RequestBody TechBlog techBlog) {
+		LOG.info(String.format("Writing %s to Database", techBlog.getPostTitle()));
+		return techBlogRepository.save(techBlog);
+	}
+	
+	
 	
 	@CrossOrigin
 	@GetMapping("/travelBlog")

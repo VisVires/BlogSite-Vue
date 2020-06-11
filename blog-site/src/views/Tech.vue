@@ -9,6 +9,8 @@
       <div class="row">
         <div class="col-sm-8">
           <Quote></Quote>
+          <hr>
+          <TechBlog></TechBlog>
         </div>
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
           <div class="sidebar-module sidebar-module-inset">
@@ -30,11 +32,13 @@
 
 <script>
 import Quote from '@/components/Quote.vue'
+import TechBlog from '@/components/TechBlog.vue'
 
 export default {
-  name: 'TechBlog',
+  name: 'Tech',
   components: {
-    Quote
+    Quote,
+    TechBlog
   }
 }
 </script>
