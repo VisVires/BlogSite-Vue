@@ -35,6 +35,14 @@ public class Job {
 		this.technologies = technologies;
 	}
 	
+	public String getJobId() {
+		return jobId;
+	}
+
+	public void setJobId(String jobId) {
+		this.jobId = jobId;
+	}
+	
 	public String getCompanyName() {
 		return companyName;
 	}

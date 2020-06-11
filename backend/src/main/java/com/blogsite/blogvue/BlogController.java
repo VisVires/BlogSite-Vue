@@ -66,6 +66,12 @@ public class BlogController {
 	}
 	
 	@CrossOrigin
+	@GetMapping("/quotes")
+	public List<Quote> getQuotes() {
+		return quoteRepository.findAll();
+	}
+	
+	@CrossOrigin
 	@PostMapping("/quotes")
 	public String addQuotes(@RequestBody List<Quote> quotes) {
 		LOG.info(String.format("Adding: %d Quotes", quotes.size())); 

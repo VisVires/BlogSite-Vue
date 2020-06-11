@@ -1,0 +1,72 @@
+[
+    {
+        "companyName": "BAE Systems",
+        "position": "Software Development Engineer II",
+        "startDate": "2018-02-01T08:00:00.000+00:00",
+        "endDate": null,
+        "location": {
+            "city": "San Diego",
+            "state": "CA"
+        },
+        "jobFunction": "Backend software development engineer with focus on creating and managing tools for a variety of tasks including: ",
+        "attributes": [
+            "Big Data Managment, Tooling, and Migration",
+            "RESTful API development",
+            "Operational Monitoring and Resource Management"
+        ],
+        "accomplishments": null,
+        "technologies": "Ansible, AWS Development/Cloud Tools, NoSQL and Graph Based data management, Jenkins continuous integration, Docker based Deployment/Containerization, Vue.js, Spring Boot, Maven, Git"
+    },
+    {
+        "companyName": "Vis Vires LLC",
+        "position": "Owner / Founder",
+        "startDate": "2012-03-01T08:00:00.000+00:00",
+        "endDate": "2018-02-01T08:00:00.000+00:00",
+        "location": {
+            "city": "Seattle",
+            "state": "WA"
+        },
+        "jobFunction": "Founder of successful startup focused on providing health and fitness solutions for busy professionals",
+        "attributes": null,
+        "accomplishments": [
+            "Maintained a healthy client base through word of mouth and social media advertising",
+            "Developed Web applications alongside company website to ease day to day operations"
+        ],
+        "technologies": null
+    },
+    {
+        "companyName": "Simulab Corporation",
+        "position": "Account Specialist",
+        "startDate": "2011-12-01T08:00:00.000+00:00",
+        "endDate": "2014-08-01T07:00:00.000+00:00",
+        "location": {
+            "city": "Seattle",
+            "state": "WA"
+        },
+        "jobFunction": "Introducing and managing immersive training programs for a variety of procedures in hospitals and universities nationwide",
+        "attributes": null,
+        "accomplishments": [
+            "Increased territory sales over 100%, leading company in Domestic Sales in 2013 and 2014",
+            "Managed thousands of user accounts in MI, OH, ON, PA, DE, MD, DC",
+            "Identified several new potential customers to grow company reach"
+        ],
+        "technologies": null
+    },
+    {
+        "companyName": "24 Hour Fitness",
+        "position": "Master Personal Trainer",
+        "startDate": "2008-04-01T07:00:00.000+00:00",
+        "endDate": "2012-04-01T07:00:00.000+00:00",
+        "location": {
+            "city": "Seattle",
+            "state": "WA"
+        },
+        "jobFunction": "Planning and managing fitness, and nutritional programming for working professionals",
+        "attributes": null,
+        "accomplishments": [
+            "Consistently in the top three in revenue generated at the highest grossing training gym in the nation for 4 years",
+            "Worked with over 125 unique clients for more than 7000 sessions"
+        ],
+        "technologies": null
+    }
+]
