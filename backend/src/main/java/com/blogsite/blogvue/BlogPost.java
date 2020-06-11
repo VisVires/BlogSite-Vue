@@ -1,6 +1,5 @@
 package com.blogsite.blogvue;
 
-import java.util.ArrayList;
 import java.util.Date;
 
 import org.springframework.data.annotation.Id;
