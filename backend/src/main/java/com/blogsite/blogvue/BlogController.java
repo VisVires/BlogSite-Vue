@@ -27,9 +27,30 @@ public class BlogController {
 	private QuoteRepository quoteRepository;
 	
 	@CrossOrigin
+	@PostMapping("/job")
+	public Job addJob(@RequestBody Job job) {
+		jobRepository.save(job);
+		return job;
+	}
+	
+	@CrossOrigin
 	@GetMapping("/jobs")
 	public List<Job> getJobs() {
-		return jobRepository.findAll();
+		return jobRepository.findAll(Sort.by(Sort.Direction.DESC, "startDate"));
+	}
+	
+	@CrossOrigin
+	@PostMapping("/jobs")
+	public List<Job> addJobs(@RequestBody List<Job> jobs) {
+		jobRepository.saveAll(jobs);
+		return jobs;
+	}
+	
+	@CrossOrigin
+	@PostMapping("/project")
+	public Project addProject(@RequestBody Project project) {
+		projectRepository.save(project);
+		return project;
 	}
 	
 	@CrossOrigin
@@ -39,9 +60,16 @@ public class BlogController {
 	}
 	
 	@CrossOrigin
+	@PostMapping("/projects")
+	public List<Project> addProjects(@RequestBody List<Project> projects) {
+		projectRepository.saveAll(projects);
+		return projects;
+	}
+	
+	@CrossOrigin
 	@GetMapping("/education")
 	public List<Degree> getEducation() {
-		return degreeRepository.findAll();
+		return degreeRepository.findAll(Sort.by(Sort.Direction.DESC, "startDate"));
 	}
 	
 	@CrossOrigin

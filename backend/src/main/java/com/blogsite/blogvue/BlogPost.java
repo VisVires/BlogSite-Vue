@@ -19,6 +19,14 @@ public abstract class BlogPost {
 		this.postDate = postDate;
 	}
 	
+	public String getBlogId() {
+		return blogId;
+	}
+
+	public void setBlogId(String blogId) {
+		this.blogId = blogId;
+	}
+
 	public String getPostTitle() {
 		return postTitle;
 	}
