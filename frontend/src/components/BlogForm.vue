@@ -13,11 +13,11 @@
       <b-form-group id="blog-group-2" label="Post:" label-for="blog-input-2">
         <b-form-textarea
           id="blog-input-2"
-          v-model="form.post"
+          v-model="form.text"
           required
-          placeholder="Enter text"
+          placeholder="Enter text the rendered HTML will show in the text-box below"
           @input="compileMarkdown"
-          :value="form.post"
+          :value="form.text"
         ></b-form-textarea>
       </b-form-group>
 
@@ -46,21 +46,22 @@ export default {
         text: '',
         postDate: ''
       },
-      markdown: '# This is the markdown preview',
+      markdown: '',
       show: true
     }
   },
   methods: {
     setDate: function () {
       var today = new Date();
-      var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
-      var time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      var date = today.getFullYear()+'-'+('0'+ (today.getMonth()+1)).slice(-2)+'-'+('0' + today.getDate()).slice(-2);
+      var time = today.getHours() + ":" + ('0'+ today.getMinutes()).slice(-2) + ":" + ('0'+ today.getSeconds()).slice(-2);
       this.form.postDate = date+'T'+time+'.000+00:00';
     },
     onSubmit(evt) {
       evt.preventDefault()
       this.setDate()
       alert(JSON.stringify(this.form))
+      this.sendFormInfo()
     },
     onReset(evt) {
       evt.preventDefault()
@@ -78,12 +79,12 @@ export default {
       axios
         .post(baseUrl + '/techBlog', this.form)
         .then(response => {
-          this.responseData = response.data
+          this.data = response.data
+          console.log(this.data)
       })
     },
     compileMarkdown: function() {
-      this.markdown = marked(this.form.post);
-      console.log(this.markdown)
+      this.markdown = marked(this.form.text);
     }
   }
 }

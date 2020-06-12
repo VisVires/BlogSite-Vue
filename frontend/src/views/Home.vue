@@ -9,7 +9,7 @@
       <b-col>
         <div class="blog-header">
           <h1 style="text-align: left" class="blog-title"><strong>Blog Input</strong></h1>
-          <p class="lead blog-description">Just a place to easily update the existing data on my site!</p>
+          <p class="lead blog-description">Just a place to easily update and preview changes to my site!</p>
           <hr class="style3">
         </div>
         <b-card no-body>

@@ -1,4 +1,4 @@
-ls.md
+* * *
 
 What happens when you input ls -l foo* in your bash shell?
 

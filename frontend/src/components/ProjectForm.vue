@@ -85,6 +85,7 @@ export default {
         .post(baseUrl + '/project', this.form)
         .then(response => {
           this.data = response.data
+          console.log(this.data)
       })
     }
   }
