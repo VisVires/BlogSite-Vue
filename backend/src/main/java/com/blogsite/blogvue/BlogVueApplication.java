@@ -13,6 +13,18 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+import com.blogsite.blogvue.models.Degree;
+import com.blogsite.blogvue.models.Job;
+import com.blogsite.blogvue.models.Location;
+import com.blogsite.blogvue.models.Project;
+import com.blogsite.blogvue.models.Quote;
+import com.blogsite.blogvue.repository.DegreeRepository;
+import com.blogsite.blogvue.repository.JobRepository;
+import com.blogsite.blogvue.repository.ProjectRepository;
+import com.blogsite.blogvue.repository.QuoteRepository;
+import com.blogsite.blogvue.repository.TechBlogRepository;
+
 import org.springframework.boot.CommandLineRunner;
 
 @SpringBootApplication

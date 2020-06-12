@@ -1,4 +1,4 @@
-package com.blogsite.blogvue;
+package com.blogsite.blogvue.models;
 
 import java.util.ArrayList;
 import java.util.Date;

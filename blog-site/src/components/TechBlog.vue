@@ -2,6 +2,12 @@
   <div id="tech-blog">
     <h2>{{ post.postTitle }}</h2>
     <div v-html="input"></div>
+    <b-pagination
+      v-model="currentPage"
+      :total-rows="rows"
+      :per-page="perPage"
+      aria-controls="my-table"
+    ></b-pagination>
   </div>
 </template>
 
@@ -15,7 +21,7 @@ export default {
   name: 'TechBlog',
   data () {
     return {
-      input: '',
+      input: [],
       post: {}
     }
   },

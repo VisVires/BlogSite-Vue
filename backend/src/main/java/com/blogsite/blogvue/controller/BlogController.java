@@ -1,4 +1,4 @@
-package com.blogsite.blogvue;
+package com.blogsite.blogvue.controller;
 
 import java.util.Calendar;
 import java.util.List;
@@ -9,6 +9,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
+
+import com.blogsite.blogvue.models.Degree;
+import com.blogsite.blogvue.models.Job;
+import com.blogsite.blogvue.models.Project;
+import com.blogsite.blogvue.models.Quote;
+import com.blogsite.blogvue.models.TechBlog;
+import com.blogsite.blogvue.repository.DegreeRepository;
+import com.blogsite.blogvue.repository.JobRepository;
+import com.blogsite.blogvue.repository.ProjectRepository;
+import com.blogsite.blogvue.repository.QuoteRepository;
+import com.blogsite.blogvue.repository.TechBlogRepository;
 
 
 @RestController
@@ -110,14 +121,21 @@ public class BlogController {
 	
 	@CrossOrigin
 	@GetMapping("/techBlog")
-	public TechBlog getTechBlog() {
-		return techBlogRepository.findAll(Sort.by(Sort.Direction.DESC, "postDate")).get(0);
+	public List<TechBlog> getTechBlog() {
+		return techBlogRepository.findAll(Sort.by(Sort.Direction.DESC, "postDate"));
 	}
 	
 	@CrossOrigin
 	@PostMapping("/techBlog")
 	public TechBlog writeTechPost(@RequestBody TechBlog techBlog) {
 		LOG.info(String.format("Writing %s to Database", techBlog.getPostTitle()));
+		return techBlogRepository.save(techBlog);
+	}
+	
+	@CrossOrigin
+	@PostMapping("/auth/signin")
+	public TechBlog signin(@RequestBody TechBlog techBlog) {
+		LOG.info(String.format("Signing in to Admin page"));
 		return techBlogRepository.save(techBlog);
 	}
 	
