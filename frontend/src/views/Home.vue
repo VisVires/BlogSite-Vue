@@ -28,6 +28,7 @@
       </b-col>
       <b-col cols="1"/>
     </b-form-row>
+    <Footer/>
   </div>
 </template>
 
@@ -36,14 +37,15 @@
 import BlogForm from '@/components/BlogForm.vue'
 import QuoteForm from '@/components/QuoteForm.vue'
 import ProjectForm from '@/components/ProjectForm.vue'
-
+import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'Home',
   components: {
     BlogForm,
     QuoteForm,
-    ProjectForm
+    ProjectForm,
+    Footer
   }
 }
 </script>

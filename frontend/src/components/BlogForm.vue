@@ -21,7 +21,6 @@
         ></b-form-textarea>
       </b-form-group>
 
-      <b-button v-on:click="compileMarkdown">Preview</b-button>
       <b-button type="submit">Submit</b-button>
       <b-button type="reset">Reset</b-button>
     </b-form>
