@@ -127,8 +127,8 @@ public class BlogController {
 	
 	@CrossOrigin
 	@GetMapping("/techBlog")
-	public TechBlog getTechBlog() {
-		return techBlogRepository.findAll(Sort.by(Sort.Direction.DESC, "postDate")).get(0);
+	public List<TechBlog> getTechBlog() {
+		return techBlogRepository.findAll(Sort.by(Sort.Direction.DESC, "postDate"));
 	}
 	
 	@CrossOrigin

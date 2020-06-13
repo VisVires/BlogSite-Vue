@@ -1,11 +1,12 @@
 <template>
   <div id="tech-blog">
-    <h2>{{ post.postTitle }}</h2>
+    <h2>{{ currPost.postTitle }}</h2>
     <div v-html="input"></div>
-    <b-pagination-nav
-      number-of-pages="10"
-      base-url="#"
-    ></b-pagination-nav>
+    <b-button-group>
+      <b-button size="lg" variant="outline-secondary" type="button" @click="prevPage" :disabled="currentPage==0">Prev Post</b-button>
+      <b-button size="lg" variant="outline-secondary" type="button" @click="nextPage" :disabled="currentPage >= pages -1">Next Post</b-button>
+    </b-button-group>
+    <hr>
   </div>
 </template>
 
@@ -19,14 +20,28 @@ export default {
   name: 'TechBlog',
   data () {
     return {
-      input: [],
-      post: {},
-      currentPage: 0
+      input: {},
+      currPost: {},
+      posts: [],
+      currentPage: 0,
+      pages: 0
     }
   },
   computed: {
     compiledMarkdown: function () {
-      return marked()
+      return dompurify.sanitize(marked(this.currPost.text))
+    }
+  },
+  methods: {
+    nextPage() {
+      this.currentPage++
+      this.currPost = this.posts[this.currentPage]
+      this.input = dompurify.sanitize(marked(this.currPost.text))
+    },
+    prevPage() {
+      this.currentPage--
+      this.currPost = this.posts[this.currentPage]
+      this.input = dompurify.sanitize(marked(this.currPost.text))
     }
   },
   mounted () {
@@ -34,8 +49,10 @@ export default {
     axios
       .get(baseUrl + '/techBlog')
       .then(response => {
-        this.post = response.data
-        this.input = dompurify.sanitize(marked(this.post.text))
+        this.posts = response.data
+        this.currPost = this.posts[0]
+        this.pages = this.posts.length
+        this.input = dompurify.sanitize(marked(this.currPost.text))
       })
   }
 }
