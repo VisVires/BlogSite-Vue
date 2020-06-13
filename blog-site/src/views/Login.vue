@@ -7,7 +7,7 @@
           <b-form-input id="username" type="text" v-model="input.username" required placeholder="Username"/>
         </b-form-group>
         <b-form-group id="password-group" label="Password:" label-for="password">
-          <b-form-input type="password" name="password" v-model="input.password" required placeholder="Password"/>
+          <b-form-input type="password" name="password" autocomplete="current-password" v-model="input.password" required placeholder="Password"/>
         </b-form-group>
         <b-button size="lg" variant="outline-secondary" type="button" v-on:click="login()">Login</b-button>
       </b-form>

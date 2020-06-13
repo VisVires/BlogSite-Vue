@@ -7,5 +7,7 @@ import com.blogsite.blogvue.models.Role;
 import com.blogsite.blogvue.models.RoleEnum;
 
 public interface RoleRepository extends MongoRepository<Role, String>{
-	 Optional<Role> findByName(RoleEnum name);
+
+	Optional<Role> findByName(RoleEnum name);
+
 }

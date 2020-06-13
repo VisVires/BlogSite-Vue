@@ -19,11 +19,15 @@ import com.blogsite.blogvue.models.Job;
 import com.blogsite.blogvue.models.Location;
 import com.blogsite.blogvue.models.Project;
 import com.blogsite.blogvue.models.Quote;
+import com.blogsite.blogvue.models.Role;
+import com.blogsite.blogvue.models.RoleEnum;
 import com.blogsite.blogvue.repository.DegreeRepository;
 import com.blogsite.blogvue.repository.JobRepository;
 import com.blogsite.blogvue.repository.ProjectRepository;
 import com.blogsite.blogvue.repository.QuoteRepository;
+import com.blogsite.blogvue.repository.RoleRepository;
 import com.blogsite.blogvue.repository.TechBlogRepository;
+import com.blogsite.blogvue.repository.UserRepository;
 
 import org.springframework.boot.CommandLineRunner;
 
@@ -41,6 +45,10 @@ public class BlogVueApplication implements CommandLineRunner {
 	private TechBlogRepository techBlogRepository;
 	@Autowired
 	private QuoteRepository quoteRepository;
+	@Autowired
+	private RoleRepository roleRepository;
+	@Autowired 
+	private UserRepository userRepository;
 
 
 	
@@ -58,6 +66,7 @@ public class BlogVueApplication implements CommandLineRunner {
 		loadProjectInfo();
 		loadDegreeInfo();
 		loadQuotes();
+		loadRoles();
 	}
 
 	public void deleteRepos() {
@@ -66,6 +75,13 @@ public class BlogVueApplication implements CommandLineRunner {
 		degreeRepository.deleteAll();
 		techBlogRepository.deleteAll();
 		quoteRepository.deleteAll();
+		roleRepository.deleteAll();
+		userRepository.deleteAll();
+	}
+	
+	public void loadRoles() {
+		roleRepository.save(new Role(RoleEnum.ROLE_USER));
+		roleRepository.save(new Role(RoleEnum.ROLE_ADMIN));
 	}
 	
 	public void loadJobInfo() {

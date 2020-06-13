@@ -18,9 +18,6 @@
               <p>The purpose of this blog is to both give the reader a window into <em>what I'm learning right now</em> and specific topics that interest me in the broad world of Computer Science</p>
           </div>
           <div class="sidebar-module">
-            <h4>Archives</h4>
-            <ol class="list-unstyled">
-            </ol>
           </div>
           <div class="sidebar-module">
           </div>

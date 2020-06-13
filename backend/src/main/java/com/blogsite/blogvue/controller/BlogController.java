@@ -8,6 +8,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import com.blogsite.blogvue.models.Degree;
@@ -38,7 +39,8 @@ public class BlogController {
 	private QuoteRepository quoteRepository;
 	
 	@CrossOrigin
-	@PostMapping("/job")
+	@PostMapping("/addJob")
+	@PreAuthorize("hasRole('ADMIN')")
 	public Job addJob(@RequestBody Job job) {
 		jobRepository.save(job);
 		return job;
@@ -51,14 +53,15 @@ public class BlogController {
 	}
 	
 	@CrossOrigin
-	@PostMapping("/jobs")
+	@PostMapping("/addJobs")
 	public List<Job> addJobs(@RequestBody List<Job> jobs) {
 		jobRepository.saveAll(jobs);
 		return jobs;
 	}
 	
 	@CrossOrigin
-	@PostMapping("/project")
+	@PostMapping("/addProject")
+	@PreAuthorize("hasRole('ADMIN')")
 	public Project addProject(@RequestBody Project project) {
 		projectRepository.save(project);
 		return project;
@@ -71,7 +74,8 @@ public class BlogController {
 	}
 	
 	@CrossOrigin
-	@PostMapping("/projects")
+	@PostMapping("/addProjects")
+	@PreAuthorize("hasRole('ADMIN')")
 	public List<Project> addProjects(@RequestBody List<Project> projects) {
 		projectRepository.saveAll(projects);
 		return projects;
@@ -97,7 +101,8 @@ public class BlogController {
 	}
 	
 	@CrossOrigin
-	@PostMapping("/quote")
+	@PostMapping("/addQuote")
+	@PreAuthorize("hasRole('ADMIN')")
 	public String addQuote(@RequestBody Quote quote) {
 		LOG.info(String.format("Adding: %s", quote.getQuote())); 
 		quoteRepository.save(quote);
@@ -111,7 +116,8 @@ public class BlogController {
 	}
 	
 	@CrossOrigin
-	@PostMapping("/quotes")
+	@PostMapping("/addQuotes")
+	@PreAuthorize("hasRole('ADMIN')")
 	public String addQuotes(@RequestBody List<Quote> quotes) {
 		LOG.info(String.format("Adding: %d Quotes", quotes.size())); 
 		quoteRepository.saveAll(quotes);
@@ -121,25 +127,17 @@ public class BlogController {
 	
 	@CrossOrigin
 	@GetMapping("/techBlog")
-	public List<TechBlog> getTechBlog() {
-		return techBlogRepository.findAll(Sort.by(Sort.Direction.DESC, "postDate"));
+	public TechBlog getTechBlog() {
+		return techBlogRepository.findAll(Sort.by(Sort.Direction.DESC, "postDate")).get(0);
 	}
 	
 	@CrossOrigin
-	@PostMapping("/techBlog")
+	@PostMapping("/addTechBlog")
+	@PreAuthorize("hasRole('ADMIN')")
 	public TechBlog writeTechPost(@RequestBody TechBlog techBlog) {
 		LOG.info(String.format("Writing %s to Database", techBlog.getPostTitle()));
 		return techBlogRepository.save(techBlog);
 	}
-	
-	@CrossOrigin
-	@PostMapping("/auth/signin")
-	public TechBlog signin(@RequestBody TechBlog techBlog) {
-		LOG.info(String.format("Signing in to Admin page"));
-		return techBlogRepository.save(techBlog);
-	}
-	
-	
 	
 	@CrossOrigin
 	@GetMapping("/travelBlog")

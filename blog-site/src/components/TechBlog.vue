@@ -2,12 +2,10 @@
   <div id="tech-blog">
     <h2>{{ post.postTitle }}</h2>
     <div v-html="input"></div>
-    <b-pagination
-      v-model="currentPage"
-      :total-rows="rows"
-      :per-page="perPage"
-      aria-controls="my-table"
-    ></b-pagination>
+    <b-pagination-nav
+      number-of-pages="10"
+      base-url="#"
+    ></b-pagination-nav>
   </div>
 </template>
 
@@ -22,7 +20,8 @@ export default {
   data () {
     return {
       input: [],
-      post: {}
+      post: {},
+      currentPage: 0
     }
   },
   computed: {
