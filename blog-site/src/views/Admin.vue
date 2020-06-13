@@ -18,6 +18,7 @@
         </b-tab>
       </b-tabs>
     </b-card>
+    <br>
   </div>
 </template>
 

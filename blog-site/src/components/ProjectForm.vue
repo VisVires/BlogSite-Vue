@@ -42,7 +42,6 @@
         <b-button size="lg" variant="outline-secondary" type="submit">Submit</b-button>
         <b-button size="lg" variant="outline-secondary" type="reset">Reset</b-button>
       </b-button-group>
-
     </b-form>
   </div>
 </template>

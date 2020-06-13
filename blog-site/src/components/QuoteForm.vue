@@ -1,7 +1,6 @@
 <template>
   <div id="quote-form">
     <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-
       <b-form-group id="input-group-1" label="Post:" label-for="input-1">
         <b-form-textarea
           id="input-1"
@@ -58,6 +57,7 @@ export default {
     onSubmit(evt) {
       evt.preventDefault()
       alert(JSON.stringify(this.form))
+      this.sendFormInfo()
     },
     onReset(evt) {
       evt.preventDefault()
