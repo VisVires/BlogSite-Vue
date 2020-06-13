@@ -1,7 +1,7 @@
 <template>
   <div id="quote-form">
     <b-form @submit="onSubmit" @reset="onReset" v-if="show">
-      <b-form-group id="input-group-1" label="Post:" label-for="input-1">
+      <b-form-group id="input-group-1" label="Quote:" label-for="input-1">
         <b-form-textarea
           id="input-1"
           v-model="form.quote"
@@ -39,6 +39,7 @@
 <script>
 
 import axios from 'axios'
+import authHeader from '@/services/auth-header';
 
 export default {
   name: 'QuoteForm',
@@ -56,8 +57,8 @@ export default {
   methods: {
     onSubmit(evt) {
       evt.preventDefault()
-      alert(JSON.stringify(this.form))
       this.sendFormInfo()
+      alert(JSON.stringify(this.form))
     },
     onReset(evt) {
       evt.preventDefault()
@@ -73,7 +74,7 @@ export default {
     sendFormInfo () {
       var baseUrl = process.env.VUE_APP_BASE_URL
       axios
-        .post(baseUrl + '/quote', this.form)
+        .post(baseUrl + '/addQuote', this.form, { headers: authHeader() })
         .then(response => {
           this.data = response.data
           console.log(this.data)

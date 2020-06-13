@@ -49,6 +49,7 @@
 <script>
 
 import axios from 'axios'
+import authHeader from '@/services/auth-header';
 
 export default {
   name: 'ProjectForm',
@@ -68,6 +69,7 @@ export default {
     onSubmit(evt) {
       evt.preventDefault()
       this.setDate()
+      this.sendFormInfo()
       alert(JSON.stringify(this.form))
     },
     onReset(evt) {
@@ -84,7 +86,7 @@ export default {
     sendFormInfo () {
       var baseUrl = process.env.VUE_APP_BASE_URL
       axios
-        .post(baseUrl + '/project', this.form)
+        .post(baseUrl + '/addProject', this.form, { headers: authHeader() })
         .then(response => {
           this.data = response.data
           console.log(this.data)

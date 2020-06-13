@@ -38,6 +38,7 @@
 
 import marked from 'marked'
 import axios from 'axios'
+import authHeader from '@/services/auth-header';
 
 export default {
   name: 'BlogForm',
@@ -63,8 +64,8 @@ export default {
     onSubmit(evt) {
       evt.preventDefault()
       this.setDate()
-      alert(JSON.stringify(this.form))
       this.sendFormInfo()
+      alert(JSON.stringify(this.form))
     },
     onReset(evt) {
       evt.preventDefault()
@@ -81,7 +82,7 @@ export default {
     sendFormInfo: function () {
       var baseUrl = process.env.VUE_APP_BASE_URL
       axios
-        .post(baseUrl + '/techBlog', this.form)
+        .post(baseUrl + '/addTechBlog', this.form, { headers: authHeader() })
         .then(response => {
           this.data = response.data
           console.log(this.data)
