@@ -88,6 +88,14 @@ public class BlogController {
 	}
 	
 	@CrossOrigin
+	@PostMapping("/addDegrees")
+	@PreAuthorize("hasRole('ADMIN')")
+	public List<Degree> addDegrees(@RequestBody List<Degree> degrees) {
+		degreeRepository.saveAll(degrees);
+		return degrees;
+	}
+	
+	@CrossOrigin
 	@GetMapping("/quote")
 	public Quote getRandomQuote() {
 		List<Quote> quotes = quoteRepository.findAll();

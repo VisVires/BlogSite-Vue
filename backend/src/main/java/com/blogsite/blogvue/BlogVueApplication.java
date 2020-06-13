@@ -14,11 +14,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import com.blogsite.blogvue.models.Degree;
 import com.blogsite.blogvue.models.Job;
 import com.blogsite.blogvue.models.Location;
 import com.blogsite.blogvue.models.Project;
-import com.blogsite.blogvue.models.Quote;
 import com.blogsite.blogvue.models.Role;
 import com.blogsite.blogvue.models.RoleEnum;
 import com.blogsite.blogvue.repository.DegreeRepository;
@@ -64,8 +62,6 @@ public class BlogVueApplication implements CommandLineRunner {
 		
 		loadJobInfo();
 		loadProjectInfo();
-		loadDegreeInfo();
-		loadQuotes();
 		loadRoles();
 	}
 
@@ -191,6 +187,12 @@ public class BlogVueApplication implements CommandLineRunner {
 			ArrayList<String> fitnessAttributes = new ArrayList<String>(Arrays.asList(
 					" Previously Hosted on Github Pages and SSL done by Cloudflare"));
 			
+			projectRepository.save(new Project("Blog Site v1","NodeJS application with Express Framework for personal, tech and fitness blog.",
+					blogUrl, blogAttributes));
+			
+			projectRepository.save(new Project("Blog Site v2","Refactored Blog Site project constructed with Vue.js using a Spring Boot / MongoDB backend",
+					blogIIUrl, blogIIAttributes));
+			
 			projectRepository.save(new Project("PinchTest Application","Application for calculating user body fat percentage using skin-fold measurments via the Siri equation",
 					pinchTestUrl, pinchAttributes));
 			
@@ -202,12 +204,6 @@ public class BlogVueApplication implements CommandLineRunner {
 			
 			projectRepository.save(new Project("How To Guide","NodeJS Application built to explain server side analytics using universal analytics and the Google Analytics API",
 					howToUrl, howToAttributes));
-			
-			projectRepository.save(new Project("Blog Site v1","NodeJS application with Express Framework for personal, tech and fitness blog.",
-					blogUrl, blogAttributes));
-			
-			projectRepository.save(new Project("Blog Site v2","Refactored Blog Site project constructed with Vue.js using a Spring Boot / MongoDB backend",
-					blogIIUrl, blogIIAttributes));
 			
 			projectRepository.save(new Project("Small Shell","Operating Systems class project to build small shell with limited functionality and some built-in functions",
 					smallShellUrl, smallShellAttributes));
@@ -225,42 +221,5 @@ public class BlogVueApplication implements CommandLineRunner {
 		}
 		
 
-	}
-	
-	
-	public void loadDegreeInfo() {
-		
-		Date osuStart = new GregorianCalendar(2014, Calendar.SEPTEMBER, 1).getTime();
-		Date osuEnd = new GregorianCalendar(2017, Calendar.DECEMBER, 1).getTime();
-		
-		Date kellerStart = new GregorianCalendar(2010, Calendar.SEPTEMBER, 1).getTime();
-		Date kellerEnd = new GregorianCalendar(2012, Calendar.DECEMBER, 1).getTime();
-		
-		Date uwStart = new GregorianCalendar(2003, Calendar.SEPTEMBER, 1).getTime();
-		Date uwEnd = new GregorianCalendar(2008, Calendar.JUNE, 13).getTime();
-	
-		Location uwLocation = new Location("Seattle", "WA");
-		Location osuLocation = new Location("Corvallis", "OR");
-		Location kellerLocation = new Location("Federal Way", "WA");
-		
-		degreeRepository.save(new Degree("Oregon State University", osuLocation, osuStart, 
-				osuEnd, "Bachelor of Science: Computer Science", 3.98));
-		
-		degreeRepository.save(new Degree("Keller Institute of Management", kellerLocation, kellerStart, 
-				kellerEnd, "Master of Business Administration",
-				"Information Systems Management", 3.92));
-		
-		degreeRepository.save(new Degree("University of Washington",uwLocation, uwStart, 
-				uwEnd, "Bachelor of Science : Molecular, Cellular and Developmental Biology", 3.46));
-		
-		degreeRepository.save(new Degree("University of Washington",uwLocation, uwStart, 
-				uwEnd, "Bachelor of Arts : Psychology", 3.46));
-	}
-	
-	public void loadQuotes() {
-		quoteRepository.save(new Quote("Beta is latin for still doesn't work", "Unknown", null));
-		quoteRepository.save(new Quote("Debugging is twice as hard as writing the code in the first place. "
-				+ "Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.", "Brian W. Kernighan", null));
-		quoteRepository.save(new Quote("If computers get too powerful, we can organize them into committees. That'll do them in", "Unknown", null));
 	}
 }
