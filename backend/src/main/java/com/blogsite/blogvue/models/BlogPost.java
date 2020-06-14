@@ -1,14 +1,16 @@
 package com.blogsite.blogvue.models;
 
 import java.util.Date;
-
+import javax.validation.constraints.NotNull;
 import org.springframework.data.annotation.Id;
 
 public abstract class BlogPost {
 	
 	@Id
 	private String blogId;
+	@NotNull(message = "Title is mandatory")
 	private String postTitle;
+	@NotNull(message = "Text is mandatory")
 	private String text;
 	private Date postDate;
 	

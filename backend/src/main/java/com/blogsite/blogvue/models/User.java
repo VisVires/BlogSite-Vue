@@ -3,6 +3,8 @@ package com.blogsite.blogvue.models;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.validation.constraints.NotNull;
+
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -12,9 +14,9 @@ public class User {
 	
 	@Id
 	private String id;
-	
+	@NotNull(message = "Username is mandatory")
 	private String username;
-	
+	@NotNull(message = "Password is mandatory")
 	private String password;
 	
 	@DBRef

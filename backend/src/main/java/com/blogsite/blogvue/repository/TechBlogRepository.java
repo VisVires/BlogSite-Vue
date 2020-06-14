@@ -10,5 +10,7 @@ import com.blogsite.blogvue.models.TechBlog;
 
 public interface TechBlogRepository extends MongoRepository <TechBlog, String> {
 
-	List<TechBlog> findAll(Sort sort);	
+	List<TechBlog> findAll(Sort sort);
+
+	boolean existsByPostTitle(String postTitle);	
 }

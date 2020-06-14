@@ -2,7 +2,7 @@ package com.blogsite.blogvue.models;
 
 import java.net.URL;
 import java.util.ArrayList;
-
+import javax.validation.constraints.NotNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -12,8 +12,11 @@ public class Project {
 	
 	@Id
 	private String projectId;
+	@NotNull(message = "Project Name is mandatory")
 	private String projectName;
+	@NotNull(message = "Project Purpose is mandatory")
 	private String purpose;
+	@NotNull(message = "Project repo address is mandatory")
 	private URL repoAddress;
 	private ArrayList<String> attributes;
 	

@@ -8,4 +8,6 @@ import com.blogsite.blogvue.models.Project;
 public interface ProjectRepository extends MongoRepository<Project, String>{
 
 	public List<Project> findAll();
+
+	public boolean existsByProjectName(String projectName);
 }

@@ -1,7 +1,7 @@
 package com.blogsite.blogvue.models;
 
 import java.util.Date;
-
+import javax.validation.constraints.NotNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -11,10 +11,12 @@ public class Degree {
 	
 	@Id
 	private String schoolId;
+	@NotNull(message = "School Name is mandatory")
 	private String schoolName;
 	private Location location;
 	private Date startDate;
 	private Date endDate;
+	@NotNull(message = "Degree Name is mandatory")
 	private String degreeName;
 	private String concentration;
 	private Double average;

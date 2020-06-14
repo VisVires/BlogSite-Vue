@@ -2,7 +2,7 @@ package com.blogsite.blogvue.models;
 
 import java.util.ArrayList;
 import java.util.Date;
-
+import javax.validation.constraints.NotNull;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -11,8 +11,11 @@ public class Job {
 	
 	@Id
 	private String jobId;
+	@NotNull(message = "Company Name is mandatory")
 	private String companyName;
-	private String position; 
+	@NotNull(message = "Postion is mandatory")
+	private String position;
+	@NotNull(message = "Start Date is mandatory")
 	private Date startDate;
 	private Date endDate;
 	private Location location;

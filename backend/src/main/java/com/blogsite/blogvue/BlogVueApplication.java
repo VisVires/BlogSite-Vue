@@ -46,9 +46,9 @@ public class BlogVueApplication implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception { 
-		
 		deleteRepos();
 		loadRoles();
+		loadRootUser();
 	}
 
 	public void deleteRepos() {
@@ -64,5 +64,9 @@ public class BlogVueApplication implements CommandLineRunner {
 	public void loadRoles() {
 		roleRepository.save(new Role(RoleEnum.ROLE_USER));
 		roleRepository.save(new Role(RoleEnum.ROLE_ADMIN));
+	}
+	
+	public void loadRootUser() {
+		
 	}
 }

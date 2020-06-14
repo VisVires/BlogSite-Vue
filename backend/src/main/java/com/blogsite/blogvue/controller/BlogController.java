@@ -8,11 +8,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import com.blogsite.blogvue.models.Degree;
 import com.blogsite.blogvue.models.Job;
+import com.blogsite.blogvue.models.MessageResponse;
 import com.blogsite.blogvue.models.Project;
 import com.blogsite.blogvue.models.Quote;
 import com.blogsite.blogvue.models.TechBlog;
@@ -62,9 +65,15 @@ public class BlogController {
 	@CrossOrigin
 	@PostMapping("/addProject")
 	@PreAuthorize("hasRole('ADMIN')")
-	public Project addProject(@RequestBody Project project) {
+	public ResponseEntity<MessageResponse> addProject(@RequestBody Project project) {
+		if (projectRepository.existsByProjectName(project.getProjectName())) {
+			return ResponseEntity
+				.badRequest()
+				.body(new MessageResponse("Error: Project Name is already taken!"));
+		}
 		projectRepository.save(project);
-		return project;
+		return ResponseEntity.status(HttpStatus.OK).body(new MessageResponse(
+				String.format("Project Added %s", project.getProjectName())));
 	}
 	
 	@CrossOrigin
@@ -142,9 +151,16 @@ public class BlogController {
 	@CrossOrigin
 	@PostMapping("/addTechBlog")
 	@PreAuthorize("hasRole('ADMIN')")
-	public TechBlog writeTechPost(@RequestBody TechBlog techBlog) {
+	public ResponseEntity<MessageResponse> writeTechPost(@RequestBody TechBlog techBlog) {
+		if (techBlogRepository.existsByPostTitle(techBlog.getPostTitle())) {
+			return ResponseEntity
+				.badRequest()
+				.body(new MessageResponse("Error: Post Title has been taken!"));
+		}	
 		LOG.info(String.format("Writing %s to Database", techBlog.getPostTitle()));
-		return techBlogRepository.save(techBlog);
+		techBlogRepository.save(techBlog);
+		return ResponseEntity.status(HttpStatus.OK).body(new MessageResponse(
+				String.format("Post Added %s", techBlog.getPostTitle())));
 	}
 	
 	@CrossOrigin
