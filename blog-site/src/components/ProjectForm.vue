@@ -78,7 +78,7 @@ export default {
         projectName: '',
         purpose: '',
         repoAddress: '',
-        attributes: ''
+        attributes: []
       },
       show: true,
       projectName: '',
@@ -96,13 +96,17 @@ export default {
     onReset(evt) {
       evt.preventDefault()
       // Reset our form values
-      this.form.title = ''
-      this.form.text = ''
+      this.form.projectName = ''
+      this.form.purpose = ''
+      this.form.repoAddress = ''
       // Trick to reset/clear native browser form validation state
       this.show = false
       this.$nextTick(() => {
         this.show = true
       })
+      this.projectName = ''
+      this.purpose = ''
+      this.repoAddress = ''
     },
     sendFormInfo () {
       var baseUrl = process.env.VUE_APP_BASE_URL

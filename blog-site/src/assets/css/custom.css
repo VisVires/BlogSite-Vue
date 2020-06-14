@@ -253,17 +253,17 @@ footer {
 
 #skills_table{
 	font-size: 100%;
-  	line-height: 1.0;
+  line-height: 1.0;
 }
 
 .bullets {
 	margin-bottom: 0;
-	line-height: 1.0;
+	line-height: 1.25;
 }
 
 .bullets li{
   font-size: 100%;
-  line-height: 1.0;
+  line-height: 1.25;
 }
 
 
