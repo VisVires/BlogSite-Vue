@@ -10,10 +10,8 @@
             <font-awesome-icon :icon="['fab', 'github']"></font-awesome-icon>
             <strong> {{ project.projectName }} </strong></a></h3>
             <ul class="bullets">
-              <li>{{ project.purpose }}</li>
-            </ul>
-            <ul class="bullets" v-for="(attribute, index) in project.attributes" :key="index">
-              <li> {{ attribute }} </li>
+              <li><strong> {{ project.purpose }} </strong></li>
+              <li v-for="(attribute, index) in project.attributes" :key="index"> {{ attribute }} </li>
             </ul>
           </b-td>
         </b-tr>
@@ -34,8 +32,9 @@ export default {
     }
   },
   mounted () {
+    var baseUrl = process.env.VUE_APP_BASE_URL
     axios
-      .get('http://localhost:9090/projects')
+      .get(baseUrl + '/projects')
       .then(response => {
         this.projects = response.data
       })

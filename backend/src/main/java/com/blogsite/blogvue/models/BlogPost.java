@@ -1,27 +1,34 @@
-package com.blogsite.blogvue;
+package com.blogsite.blogvue.models;
 
-import java.util.ArrayList;
 import java.util.Date;
-
+import javax.validation.constraints.NotNull;
 import org.springframework.data.annotation.Id;
 
 public abstract class BlogPost {
 	
 	@Id
 	private String blogId;
+	@NotNull(message = "Title is mandatory")
 	private String postTitle;
-	private ArrayList<String> text;
-	private ArrayList<String> images;
+	@NotNull(message = "Text is mandatory")
+	private String text;
 	private Date postDate;
 	
-	public BlogPost(String postTitle, ArrayList<String> text, ArrayList<String> images, Date postDate) {
+	public BlogPost(String postTitle, String text, Date postDate) {
 		super();
 		this.postTitle = postTitle;
 		this.text = text;
-		this.images = images;
 		this.postDate = postDate;
 	}
 	
+	public String getBlogId() {
+		return blogId;
+	}
+
+	public void setBlogId(String blogId) {
+		this.blogId = blogId;
+	}
+
 	public String getPostTitle() {
 		return postTitle;
 	}
@@ -30,20 +37,12 @@ public abstract class BlogPost {
 		this.postTitle = postTitle;
 	}
 
-	public ArrayList<String> getText() {
+	public String getText() {
 		return text;
 	}
 
-	public void setText(ArrayList<String> text) {
+	public void setText(String text) {
 		this.text = text;
-	}
-
-	public ArrayList<String> getImages() {
-		return images;
-	}
-
-	public void setImages(ArrayList<String> images) {
-		this.images = images;
 	}
 
 	public Date getPostDate() {

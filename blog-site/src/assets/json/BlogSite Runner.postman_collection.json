@@ -1,0 +1,425 @@
+{
+	"info": {
+		"_postman_id": "ab4ec566-8770-4d9e-84f7-eb2d7e9fa248",
+		"name": "BlogSite Runner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST add user Copy",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n        \"username\":\"{{userName}}\",\n        \"password\":\"{{password}}\",\n        \"roles\":[\"admin\",\"user\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{env}}:{{port}}/auth/signup",
+					"host": [
+						"{{env}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"auth",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST sign in",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4eb6fadf-1f23-4871-bfff-fdf3ecfc1410",
+						"exec": [
+							"pm.test(\"Update env\", function () {",
+							"    var resp = pm.response.json();",
+							"    pm.environment.set(\"jwt\", resp.accessToken);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"{{userName}}\",\n    \"password\":\"{{password}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{env}}:{{port}}/auth/signin",
+					"host": [
+						"{{env}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"auth",
+						"signin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST add quotes Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "12f51efd-d163-4932-ac73-fa52d907b38c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"quoteId\": \"5ee552f99e1e8d340739e797\",\n        \"quote\": \"Beta is latin for still doesn't work\",\n        \"author\": \"Unknown\",\n        \"reference\": null\n    },\n    {\n        \"quoteId\": \"5ee552f99e1e8d340739e798\",\n        \"quote\": \"Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.\",\n        \"author\": \"Brian W. Kernighan\",\n        \"reference\": null\n    },\n    {\n        \"quoteId\": \"5ee552f99e1e8d340739e799\",\n        \"quote\": \"If computers get too powerful, we can organize them into committees. That'll do them in\",\n        \"author\": \"Unknown\",\n        \"reference\": null\n    },\n    {\n    \"quote\": \"C is quirky, flawed, and an enormous success.\",\n    \"author\": \"Dennis M. Ritchie\",\n    \"year\": null,\n    \"reference\": null\n    },\n    {\n    \"quote\": \"Every kid coming out of Harvard, every kid coming out of school now thinks he can be the next Mark Zuckerberg, and with these new technologies like cloud computing, he actually has a shot.\",\n    \"author\": \"Marc Andreessen\",\n    \"year\": null,\n    \"reference\": null\n    },\n    {\n    \"quote\": \"There are two ways of constructing a software design: One way is to make it so simple that there are obviously no deficiencies, and the other way is to make it so complicated that there are no obvious deficiencies. The first method is far more difficult.\",\n    \"author\": \"C.A.R. Hoare\",\n    \"year\": null,\n    \"reference\": null\n    },\n    {\n    \"quote\": \"Technology is a word that describes something that doesn’t work yet.\",\n    \"author\": \"Douglas Adams\",\n    \"year\": null,\n    \"reference\": null\n    },\n    {\n    \"quote\": \"It had nothing to do with using [programs] for practical things, it had more to do with using them as a mirror of your thought process. To actually learn how to think. I think everyone in this country should learn to program a computer. Everyone should learn a computer language because it teaches you how to think. I think of computer science as a liberal art.\",\n    \"author\": \"Steve Jobs\",\n    \"year\": null,\n    \"reference\": null\n    },\n      {\n    \"quote\": \"True innovation often comes from the small startup who is lean enough to launch a market but lacks the heft to own it.\",\n    \"author\": \"Timm Martin\",\n    \"year\": null,\n    \"reference\": null\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{env}}:{{port}}/addQuotes",
+					"host": [
+						"{{env}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"addQuotes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST add Jobs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "77566105-7342-416d-84a4-2b2e94bc56c7",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"companyName\": \"BAE Systems\",\n        \"position\": \"Software Development Engineer II\",\n        \"startDate\": \"2018-02-01T08:00:00.000+00:00\",\n        \"endDate\": null,\n        \"location\": {\n            \"city\": \"San Diego\",\n            \"state\": \"CA\"\n        },\n        \"jobFunction\": \"Backend software development engineer with focus on creating and managing tools for a variety of tasks including: \",\n        \"attributes\": [\n            \"Big Data Managment, Tooling, and Migration\",\n            \"RESTful API development\",\n            \"Operational Monitoring and Resource Management\"\n        ],\n        \"accomplishments\": null,\n        \"technologies\": \"Ansible, AWS Development/Cloud Tools, NoSQL and Graph Based data management, Jenkins continuous integration, Docker based Deployment/Containerization, Vue.js, Spring Boot, Maven, Git\"\n    },\n    {\n        \"companyName\": \"Vis Vires LLC\",\n        \"position\": \"Owner / Founder\",\n        \"startDate\": \"2012-03-01T08:00:00.000+00:00\",\n        \"endDate\": \"2018-02-01T08:00:00.000+00:00\",\n        \"location\": {\n            \"city\": \"Seattle\",\n            \"state\": \"WA\"\n        },\n        \"jobFunction\": \"Founder of successful startup focused on providing health and fitness solutions for busy professionals\",\n        \"attributes\": null,\n        \"accomplishments\": [\n            \"Maintained a healthy client base through word of mouth and social media advertising\",\n            \"Developed Web applications alongside company website to ease day to day operations\"\n        ],\n        \"technologies\": null\n    },\n    {\n        \"companyName\": \"Simulab Corporation\",\n        \"position\": \"Account Specialist\",\n        \"startDate\": \"2011-12-01T08:00:00.000+00:00\",\n        \"endDate\": \"2014-08-01T07:00:00.000+00:00\",\n        \"location\": {\n            \"city\": \"Seattle\",\n            \"state\": \"WA\"\n        },\n        \"jobFunction\": \"Introducing and managing immersive training programs for a variety of procedures in hospitals and universities nationwide\",\n        \"attributes\": null,\n        \"accomplishments\": [\n            \"Increased territory sales over 100%, leading company in Domestic Sales in 2013 and 2014\",\n            \"Managed thousands of user accounts in MI, OH, ON, PA, DE, MD, DC\",\n            \"Identified several new potential customers to grow company reach\"\n        ],\n        \"technologies\": null\n    },\n    {\n        \"companyName\": \"24 Hour Fitness\",\n        \"position\": \"Master Personal Trainer\",\n        \"startDate\": \"2008-04-01T07:00:00.000+00:00\",\n        \"endDate\": \"2012-04-01T07:00:00.000+00:00\",\n        \"location\": {\n            \"city\": \"Seattle\",\n            \"state\": \"WA\"\n        },\n        \"jobFunction\": \"Planning and managing fitness, and nutritional programming for working professionals\",\n        \"attributes\": null,\n        \"accomplishments\": [\n            \"Consistently in the top three in revenue generated at the highest grossing training gym in the nation for 4 years\",\n            \"Worked with over 125 unique clients for more than 7000 sessions\"\n        ],\n        \"technologies\": null\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{env}}:{{port}}/addJobs",
+					"host": [
+						"{{env}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"addJobs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST add Projects",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "96c986f6-dd31-4bec-87cb-720dfc509c5c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{jwt}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"projectName\": \"PinchTest Application\",\n        \"purpose\": \"Application for calculating user body fat percentage using skin-fold measurments via the Siri equation\",\n        \"repoAddress\": \"https://github.com/VisVires/PinchTest\",\n        \"attributes\": [\n            \"Google DataStore for NoSQL Database\",\n            \"RESTful API/Backend Server built in Python and hosted on Google App Engine\",\n            \"Android Interface for client side currently with Web and iOS interfaces currently under construction\",\n            \"Application built using Android SDK that uses OKHttp and AppAuth to communicate with custom API\",\n            \"Google+ OAuth2.0 Integration with Java\",\n            \"Web Interface will be built using Google+ OAuth2.0 and NodeJS Express with Handlebars templating along with Bootstrap CSS3\"\n        ]\n    },\n    {\n        \"projectName\": \"FTP Server and Client\",\n        \"purpose\": \"FTP server built in C to send file and directory contents to client via web sockets\",\n        \"repoAddress\": \"https://github.com/VisVires/FTP_Server-Client\",\n        \"attributes\": [\n            \"Simple FTP client constructed with Python that can request server directory as well as individual files\"\n        ]\n    },\n    {\n        \"projectName\": \"Unity 2D Tower Defense\",\n        \"purpose\": \"2D Tower Defense Game created using Unity Game Engine for class project\",\n        \"repoAddress\": \"https://github.com/VisVires/UnityTowerDefense\",\n        \"attributes\": [\n            \"Acted as team lead organizing meetings with several team members and delegating responsibility\",\n            \"Created Procedural Path/Map Generation Algorithm based on Conways Game of Life\",\n            \"Created board generation script to generate randomized game boards with specified entry/exit points for enemies\",\n            \"Added enemy tracking script for user weapons to follow and shoot at enemies across the board when enemies come within range\"\n        ]\n    },\n    {\n        \"projectName\": \"How To Guide\",\n        \"purpose\": \"NodeJS Application built to explain server side analytics using universal analytics and the Google Analytics API\",\n        \"repoAddress\": \"https://github.com/VisVires/HowToGuide\",\n        \"attributes\": [\n            \"Templating: handlebars.js, CSS3: Bootstrap, Framework: Node.js Express, Task Management: Grunt\"\n        ]\n    },\n    {\n        \"projectName\": \"Blog Site v1\",\n        \"purpose\": \"NodeJS application with Express Framework for personal, tech and fitness blog.\",\n        \"repoAddress\": \"https://github.com/VisVires/blogSite\",\n        \"attributes\": [\n            \"Bootstrap CSS3, Express Handlebars Templating, Grunt Task Management\",\n            \"Individual Blog inputs read from backend JSON array which will eventually be ported to a NoSQL database\",\n            \"Photography pulled from S3\",\n            \"FB social commenting integration\",\n            \"Hosted using AWS EC2 t2.nano instance, Route53 DNS service, and Cloudflare for CDN\"\n        ]\n    },\n    {\n        \"projectName\": \"Blog Site v2\",\n        \"purpose\": \"Refactored Blog Site project constructed with Vue.js using a Spring Boot / MongoDB backend\",\n        \"repoAddress\": \"https://github.com/VisVires/BlogSite-Vue\",\n        \"attributes\": []\n    },\n    {\n        \"projectName\": \"Small Shell\",\n        \"purpose\": \"Operating Systems class project to build small shell with limited functionality and some built-in functions\",\n        \"repoAddress\": \"https://github.com/VisVires/smallShell\",\n        \"attributes\": [\n            \"Programmed in C to change directories, send processes to the background, bring background processes forward as well and exit\"\n        ]\n    },\n    {\n        \"projectName\": \"Gainz The Game\",\n        \"purpose\": \"Maze based RPG to demonstrate OOP concepts of Abstraction, Inheritance and Polymorphism\",\n        \"repoAddress\": \"https://github.com/VisVires/GainzTheGame\",\n        \"attributes\": [\n            \"Built on Linked-List with individual links facing North, East, South and West\",\n            \"Individual room types defined by abstract Room class\"\n        ]\n    },\n    {\n        \"projectName\": \"Vis Vires Fitness Website\",\n        \"purpose\": \"First website built using basic HTML5 and CSS3\",\n        \"repoAddress\": \"https://github.com/VisVires/VisVires.github.io\",\n        \"attributes\": [\n            \" Previously Hosted on Github Pages and SSL done by Cloudflare\"\n        ]\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{env}}:{{port}}/addProjects",
+					"host": [
+						"{{env}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"addProjects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST add education",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5e7ad6b2-dc1c-4c27-8fe9-e47bf2f4d4ba",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{jwt}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"schoolName\": \"Oregon State University\",\n        \"location\": {\n            \"city\": \"Corvallis\",\n            \"state\": \"OR\"\n        },\n        \"startDate\": \"2014-09-01T07:00:00.000+00:00\",\n        \"endDate\": \"2017-12-01T08:00:00.000+00:00\",\n        \"degreeName\": \"Bachelor of Science: Computer Science\",\n        \"concentration\": null,\n        \"average\": 3.98\n    },\n    {\n        \"schoolName\": \"Keller Institute of Management\",\n        \"location\": {\n            \"city\": \"Federal Way\",\n            \"state\": \"WA\"\n        },\n        \"startDate\": \"2010-09-01T07:00:00.000+00:00\",\n        \"endDate\": \"2012-12-01T08:00:00.000+00:00\",\n        \"degreeName\": \"Master of Business Administration\",\n        \"concentration\": \"Information Systems Management\",\n        \"average\": 3.92\n    },\n    {\n        \"schoolName\": \"University of Washington\",\n        \"location\": {\n            \"city\": \"Seattle\",\n            \"state\": \"WA\"\n        },\n        \"startDate\": \"2003-09-01T07:00:00.000+00:00\",\n        \"endDate\": \"2008-06-13T07:00:00.000+00:00\",\n        \"degreeName\": \"Bachelor of Science : Molecular, Cellular and Developmental Biology\",\n        \"concentration\": null,\n        \"average\": 3.46\n    },\n    {\n        \"schoolName\": \"University of Washington\",\n        \"location\": {\n            \"city\": \"Seattle\",\n            \"state\": \"WA\"\n        },\n        \"startDate\": \"2003-09-01T07:00:00.000+00:00\",\n        \"endDate\": \"2008-06-13T07:00:00.000+00:00\",\n        \"degreeName\": \"Bachelor of Arts : Psychology\",\n        \"concentration\": null,\n        \"average\": 3.46\n    }\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{env}}:{{port}}/addDegrees",
+					"host": [
+						"{{env}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"addDegrees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST techBlog1 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "75120c73-2f64-417b-bf40-b569621cd24c",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"postTitle\": \"A Well Architected Framework\",\n    \"text\": \"* * *\\n**A Summary of the AWS White Paper**\\n\\n* * *\\n\\n### The Five Pillars\\n\\nWhen working with a distributed computing architecture there are five-pillars you should focus on in order for it to operate at the optimal capacity. Each pillar has it's own design principles and best practices from which to operate and AWS offers tools and services to help with the implementation of each principle. The pillars are as follows:\\n\\n*   Operational Excellence\\n*   Security\\n*   Reliability\\n*   Performance Efficiency\\n*   Cost Optimization\\n\\nFor each of these I will do a brief overview of the design principles and the best practices as outlined by the white paper itself.\\n\\n* * *\\n\\n### Operational Excellence\\n\\n#### Design Principles\\n\\n*   Perform operation as code – Define entire environment and workload as code to reduce human error and enable consistent responses\\n*   Annotate Documentation – Automate the creation of documentation after every build\\n*   Refine operation procedures frequently- Always look for opportunities for improvement and evolve procedures to facilitate improvement\\n*   Make frequent, small reversible changes – Making small changes allows for components to be updated frequently\\n*   Anticipate Failure – Always test failure response procedures and perform exercises to identify sources of failure.\\n*   Learn from all operations failures- drive improvements through lessons learned\\n\\n#### Best Practices\\n\\n##### Prepare\\n\\n*   Have shared goals and understanding across every part of the business\\n*   Design your system to monitor all aspects of the application, infrastructure and customer experience\\n*   Design method by to validate application is ready for production and to be supported by operations\\n*   Be sure to have sufficient trained personnel to support the workloads\\n*   Test and practice response to operational events and failures\\n\\n##### Operate\\n\\n*   Measure operational health and success by the achievement of business and customer outcomes using custom dashboards to manage expectations and inform of normal operations\\n*   Prioritize responses based on business and customer impact\\n*   Determine cause of unplanned events and update procedures to facilitate for them\\n*   Routine and responses to unplanned events should be automated\\n\\n##### Evolve\\n\\n*   Dedicate work cycles to continuous incremental improvements\\n*   Evaluate and prioritize improvement opportunities in both workload and operations procedures\\n*   Share lessons across to teams to share benefits\\n*   Make frequent small improvements with a safe environment from which to experiment, develop and test improvements\\n\\n* * *\\n\\n### Security\\n\\n#### Design Principles\\n\\n*   Implement a strong identity foundation by separating duties, giving individuals the least privilege needed, centralizing privilege management and reducing long-term credentials.\\n*   Enable traceability by monitoring, alerting and auditing all changes and integrating logs and metrics to respond.\\n*   Apply security at each layer of the application from the network to the operating system of each specific instance\\n*   Automate best practices\\n*   Protect data at data and at rest by limiting human interaction and classifying data into sensitivity levels using encryption and tokenization.\\n*   Prepare for security events and have an incident management process that aligns with organization requirements\\n\\n#### Best Practices\\n\\n*   Identity and Access Management – allow only authorized and authenticated users to access resources in only the manner intended (R/W/Execute)\\n*   Detective Controls – use to identify potential security incidents with reactive tools to identify and understand anomalous activity\\n*   Infrastructure Protection – Defend the infrastructure at all layers and enforce rules to increase security even further like Multi-Factor Authorization\\n*   Data Protection – Before designing a system define rules for data classification and encryption\\n*   Incident Response – Isolate and contain systems to restore operations to a good known state and routinely practice incident responses\\n\\n* * *\\n\\n### Reliability\\n\\n#### Design Principles\\n\\n*   Use automation in the cloud to simulate and recreate failures then test recovery procedures\\n*   Automatically recover from failure by monitoring system for key performance indicators and triggering recovery mechanisms when certain thresholds are breached\\n*   Scale horizontally to increase aggregate system availability by distributing requests across several smaller resources so one point of failure has a smaller impact on the overall system\\n*   Stop guessing capacity and automate addition and removal of resources\\n*   Manage changes to the system using automation\\n\\n#### Best Practices\\n\\n*   Foundations – set foundational requirements that influence reliability before architecting a system, understand that cloud is limitless and that limits for networking and computing capacity may change over time\\n*   Change Management – Monitor trends that could lead to capacity issues and add or remove resources as needed using automated responses to key performance indicators to increase reliability and ensure that business success doesn’t become a burden\\n*   Failure Management – Automate reactions to monitoring data, perform regular backups and test backups to cause failures and ensure you can recover from physical and logical errors\\n\\n* * *\\n\\n### Perfomance Efficiency\\n\\n#### Design Principles\\n\\n*   Democratize advance technologies by pushing them onto the cloud and using them as a service rather than trying to learn to host and run it\\n\\n*   Use serverless architectures to remove the need to run and maintain servers for traditional compute activities and lower transactional costs\\n*   Experiment more often by carrying out comparative testing with different types of instances, storage types and different configurations\\n*   Use the technologies that best align with what you’re trying to achieve like data access patterns with databases and other storage approaches.\\n\\n#### Best Practices\\n\\n**Select multiple solutions from the different resource types to improve performance. The four main resource types are:**\\n\\n**Compute** – varies based on application design, usage patterns and configuration settings and available in three different forms:\\n*   Instances – virtualized servers\\n*   Containers – resource isolated processes using operating system virtualization\\n*   Functions – abstracted execution environment from the code\\n\\n**Storage** – varies based on access methods, patterns of access, throughput, frequency of access, update frequency, availability and durability constraints.\\n\\n**Database** – varies based on availability, consistency, partition tolerance, latency, durability, scalability and query capability. Available in 3 forms:\\n*   Managed Relational Databases – Database with tables, rows and columns with relational backbone\\n*   NoSQL Databases – key, value based pairs\\n*   Data Warehouses – means of changing the types and number of nodes as performance and capacity needs change\\n\\n**Network** – Varies based on latency and throughput requirements where physical constraints such as resource placement and location play big factors.\\n\\n**Once you've selected the appropriate resource types you can increase efficiency further by:**\\n*   Reviewing architecture and performance and understand where bottlenecks are so you can look for tools to alleviate those constraints\\n*   Setting monitors to raise alarms when thresholds are reached and set off automated triggers to work around poorly performing components\\n*   Trading consistency, availability, durability, space, time, and/or latency to deliver higher performance that aligns with business goals and test the trade-offs to ensure a measurable benefit it obtained.\\n\\n* * *\\n\\n### Cost Optimization\\n\\n#### Design Principles\\n\\n*   Adopt a consumption model so that you only pay for the computing resources you consume.\\n*   Measure overall efficiency by monitoring the business output of the system and the costs associated with it\\n*   Stop spending money on data center operations and allow a cloud service to manage hardware for you\\n*   Analyze and attribute expenditure to measure return on investment\\n*   Use managed services to remove the operational burden of maintaining servers for menial tasks\\n\\n#### Best Practices\\n\\n*   Cost Effective Resources – Use the most cost effective resources\\n*   Match Supply and Demand – Actively think about patterns of usage and time to provision new resources so you can add and remove resources as needed\\n*   Expenditure Awareness - Because you no longer have to think about the cost of manual processes associated with on-campus infrastructure you can now use tags to categorize and track costs of cloud resources and determine what resources or products are no longer generating income\\n*   Optimize over time – As requirements change be aggressive in decommissioning resources and services no longer needed and be aware of new services and how they could save you money\\n\\n* * *\",\n    \"postDate\": \"2020-06-10T07:00:00.000+00:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{env}}:{{port}}/addTechBlog",
+					"host": [
+						"{{env}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"addTechBlog"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST techBlog2 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7099a73d-1acd-424e-aac9-1906b1d90746",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"postTitle\": \"Software Development Processes\",\n    \"text\": \"* * *\\r\\n\\r\\nThere are many factors that determine how and why you use the process that you do to develop software the goal of this post is to go over the many forms of software development and the advantages and downfalls of each form. This will be an active document through the month as I go through each form of development.\\r\\n\\r\\n* * *\\r\\n\\r\\n### Waterfall\\r\\n\\r\\n> **\\r\\n> \\r\\n> \\u201CWaterfall is typically 6 months of \\u2018fun up front\\u2019, followed by \\u2018steady as she goes\\u2019 eventually ramping up to \\u2018ramming speed\\u2019.\\u201D - [Energized Work](https:\\/\\/twitter.com\\/energizedwork \\\"Energized Work twitter\\\")\\r\\n> \\r\\n> **\\r\\n\\r\\n* * *\\r\\n\\r\\n#### Methodology\\r\\n\\r\\nThe waterfall development approach or the linear\\/traditional approach to Software Development works via a regimented sequence of events such as the following:\\r\\n\\r\\n1.  Gather and document requirements\\r\\n2.  Design\\r\\n3.  Code and Unit Testing or Implementation\\r\\n4.  System Testing\\r\\n5.  Perform User Acceptance Testing or Verification\\r\\n6.  Fix Issues\\r\\n7.  Deliver the Finished Product or Maintenance and Operations\\r\\n\\r\\nA true waterfall process is a process where each phase in the process is distinct and one phase must end for the other to begin.There are several advantages to using this regimented and well-defined approach in the software development process and a subset of projects that this approach would work best with.\\r\\n\\r\\n#### Advantages\\r\\n\\r\\n*   There is a clear definition and understanding of the requirements needed going forward between the customer and the development team\\r\\n*   Progress can be easily measured as the scope of work needed to complete the project is known in advance\\r\\n*   A project manager can plan the project so that every member can be involved and simultaneously work on other projects when they need to\\r\\n*   A project manager can plan the project so that every member can be involved and simultaneously work on other projects when they need to and come back to this project when they are needed\\r\\n*   Because the deliverables are well designed the software can be designed completely without adding features at the end that may waver from the original ideas. (AKA Feature Creep)\\r\\n\\r\\n#### Disadvantages\\r\\n\\r\\n*   The need for specific details for requirements can be intimidating and in some cases impossible to do so before development starts. Many of these can be hashed out in the requirements\\/design process but in such cases you\\u2019re no longer doing a pure Waterfall approach\\r\\n*   Customer may be dissatisfied with the product because in many cases the customer will not see the product until it is almost finished. Changes at this point can be incredibly costly as you\\u2019ll have to go back over requirements, design and implementation again.\\r\\n\\r\\n#### **Best when used with:**\\r\\n\\r\\nSmaller projects where requirements can be easily defined\\r\\n\\r\\n* * *\\r\\n\\r\\n### Agile\\r\\n\\r\\n> **\\r\\n> \\r\\n> \\\"Agility is the ability to adapt and respond to change...agile organizations view change as an opportunity, not a threat\\\" -- John Highsmith\\r\\n> \\r\\n> **\\r\\n\\r\\n* * *\\r\\n\\r\\n#### Methodology\\r\\n\\r\\nAgile is an iterative approach where the emphasis is on both the customer and the team. This approach to software development emphasizes rapid delivery of applications with complete and functional components. Projects are completed in \\u201Csprints\\u201D, where certain deliverables are prioritized by the customer and each sprint has a defined duration.\\r\\n\\r\\nAfter each sprint the customer and team\\/project leads can review the work and evaluate the process. These customer reviews are essential to giving the customer the exact product they\\u2019d like.\\r\\n\\r\\nLike the waterfall approach there are some well-defined advantages and disadvatages to this approach. That being said, many of the companies I've worked with have implemented some features of Agile as their main development approach.\\r\\n\\r\\n#### Advantages\\r\\n\\r\\n*   The customer is involved in the process and as such they can make changes to the product so the final product is exactly to their specs.\\r\\n*   Using the agile approach the time to market can be a lot quicker as a bare-bones product can be released early then be built upon in successive iterations.\\r\\n*   The customer has an opportunity to see the work being delivered and can make decisions and changes throughout the process to make sure the product delivered fits their needs\\r\\n*   Development is normally user focused due to the involvement of the customer\\r\\n*   The Agile development process allows for change and teams can constantly refine the product based on the customers needs.\\r\\n*   By breaking the product down into smaller, well-defined units it can be easily tested and the final product will be higher-quality with fewer bugs. It will also be easier to integrate new features into the product.\\r\\n\\r\\n#### Disadvantages\\r\\n\\r\\n*   If the customer is not an active participant due to time or interest then this process will be difficult because of the need for customer involvment at each stage of development.\\r\\n*   This process is easiest when the team works in the same physical space due to the importance of a collabrative team environment\\r\\n*   Some items may not be completed in the time period alloted for it. As such additional sprints may be needed to complete the project, adding to the overall cost.\\r\\n*   While change is welcome, due to prioritizing change may come at the expense of time, money and other features.\\r\\n*   By not having a well defined design at the start there may be feature creep, where the product doesn\\u2019t fulfill the deliverables for which it was originally conceived.\\r\\n*   This process works best when team members are completely dedicated to the product.\\r\\n\\r\\n#### **Best when used with:**\\r\\n\\r\\nLarger projects with lots of smaller features that can be developed iteratively\\r\\n\\r\\n* * *\\r\\n\\r\\n### Scrum\\r\\n\\r\\n> **\\r\\n> \\r\\n> \\u201CNo Heroics. If you need a hero to get things done, you have a problem. Heroic effort should be viewed as a failure of planning.\\u201D \\u2015 Jeff Sutherland\\r\\n> \\r\\n> **\\r\\n\\r\\n#### Methodology\\r\\n\\r\\nScrum is an Agile framework specifically for complex projects. Like other Agile processes it emphasizes team collaboration and a set of rules to create structure. It is an iterative and incremental approach to control risk. It is a transparent, controlled process that is highly adaptable based. In scrum you have four scrum events:\\r\\n\\r\\n*   Sprint Planning\\r\\n\\r\\n*   What can be done this Sprint?\\r\\n*   How will it get done?\\r\\n*   How does this apply to the project?\\r\\n\\r\\n*   Daily Scrum\\r\\n\\r\\n*   A quick meeting for the development team held every day of the sprint. During which the next 24 hours of the sprint are planned. The goal is to optimize team collaboration and performance while eliminating other impediments like extra meetings and promoting quick decision making.\\r\\n\\r\\n*   Sprint Review\\r\\n\\r\\n*   A meeting at thend of the sprint to go over what was accomplished, increment the product backlog and a collaboration on the next steps needed to optimize value.\\r\\n\\r\\n*   Sprint Retrospective\\r\\n\\r\\n*   A meeting to look at a sprint and create a plan to improve for the next one. Specifically looking at people, relationships, process and tools and improving the way the Scrum team functions.\\r\\n\\r\\nThe scrum team consists of three members\\/groups and incrementally delivers finished products so that a potentially working product is always available. The members of the team consist of the:\\r\\n\\r\\n*   Product Owner\\r\\n\\r\\n*   One person who manages the product backlog and ensures that it is transparent, and visible to all. Also this person will optimize the work of the Development team and show what the team will work on next.\\r\\n\\r\\n*   The Development Team\\r\\n\\r\\n*   A team small enough to remain nimble but large enough to perform the work needed in the pre-defined sprint period. Accountability for the team is taken on by the team as a while and all domains including testing, operations, and architecture is managed by the team. These are the members who deliver the finished increment at the end of each sprint\\r\\n\\r\\n*   The Scrum Master\\r\\n\\r\\n*   The role of the Scrum master is be a servant to the team and making sure the team understands the rules, theory and practices of Scrum. Basically the Scrum master acts as the ambassador to Scrum development and keeps the team informed of any deviations from Scrum.\\r\\n\\r\\n#### Advantages\\r\\n\\r\\n*   Fast moving and flexible\\r\\n*   Mistakes can be easily rectified due to smaller goals\\r\\n*   Extremely transparent process with constant feedback\\r\\n*   Iterative in nature and requires constant user feedback\\r\\n*   Overhead cost due to managment is minimal as there are predefined time and fixed oversight\\r\\n\\r\\n#### Disadvantages\\r\\n\\r\\n*   Potential for feature and scope creep\\r\\n*   Hard to estimate overall project costs if product is not well-defined\\r\\n*   Only works well with a small, experienced team. With inexperienced novices the projects will not be completed\\r\\n*   Team members must be devoted to the project and cannot leave during development\\r\\n\\r\\n#### **Best when used with:**\\r\\n\\r\\nFast moving web 2.0 projects\\r\\n\\r\\n* * *\",\n    \"postDate\": \"2020-04-01T07:00:00.000+00:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{env}}:{{port}}/addTechBlog",
+					"host": [
+						"{{env}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"addTechBlog"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST techBlog3 Copy",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "16074d53-edb7-432e-98d4-c843206a66f9",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{jwt}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"postTitle\": \"What happens when you input ls -l foo* in your bash shell?\",\n    \"text\": \"* * *\\r\\n\\r\\nThis was an interview question I saw recently for a System Administrator role, and while there are many resources to answer this question, I didn't feel any were complete enough. My hope is to start with a high level overview and gradually make this post get deeper and deeper into the rabbit hole of the ls command.\\r\\n\\r\\n* * *\\r\\n\\r\\n### The Parent Shell\\r\\n\\r\\n<div class=\\\"well-sm\\\">`$ls -l foo*`<\\/div>\\r\\n\\r\\nUser writes command into stdin of shell which is waiting with getline() function\\r\\n\\r\\nThen the bash shell checks if command is an alias and if not it checks if command exists via a script similar to the following, where it uses the bash builtin command \\\"command\\\" to see if the command exists in PATH\\r\\n\\r\\n<div class=\\\"well-sm\\\">`#!\\/bin\\/sh  \\r\\n#$1 holds the requested command  \\r\\nif command -v $1 &>\\/dev\\/null  \\r\\nthen  \\r\\n`return 1`  \\r\\nelse  \\r\\n`return 0`  \\r\\nfi`<\\/div>\\r\\n\\r\\nThe `command` command works by using the `stat()` C function which returns information about a file if it can find it or -1 and an error if not.\\r\\n\\r\\nThe PATH is then tokenized using the \\\":\\\" to separate each element and each segment in the path is checked to search for the command.\\r\\n\\r\\nHere's an example of the search from my own PATH:\\r\\n\\r\\n<div class=\\\"well-sm\\\">`stat(\\\"\\/home\\/username\\/bin\\/ls\\\", 0x7ffc92ee7d20) = -1 ENOENT (No such file or directory)  \\r\\nstat(\\\"\\/home\\/username\\/.local\\/bin\\/ls\\\", 0x7ffc92ee7d20) = -1 ENOENT (No such file or directory)  \\r\\nstat(\\\"\\/usr\\/local\\/sbin\\/ls\\\", 0x7ffc92ee7d20) = -1 ENOENT (No such file or directory)  \\r\\nstat(\\\"\\/usr\\/local\\/bin\\/ls\\\", 0x7ffc92ee7d20) = -1 ENOENT (No such file or directory)  \\r\\nstat(\\\"\\/usr\\/sbin\\/ls\\\", 0x7ffc92ee7d20) = -1 ENOENT (No such file or directory)  \\r\\nstat(\\\"\\/usr\\/bin\\/ls\\\", 0x7ffc92ee7d20) = -1 ENOENT (No such file or directory)  \\r\\nstat(\\\"\\/sbin\\/ls\\\", 0x7ffc92ee7d20) = -1 ENOENT (No such file or directory)  \\r\\nstat(\\\"\\/bin\\/ls\\\", 0x7ffc92ee7d20) = 0  \\r\\n`<\\/div>\\r\\n\\r\\nAs you can see the command is found in the \\/bin folder.\\r\\n\\r\\nIf the command is valid the shell then uses the fork() system call to start allocating resources to handle the new command\\r\\n\\r\\n### The fork() System Call\\r\\n\\r\\nWhen the fork() system call is executed a series of events happen to create a new process:\\r\\n\\r\\n1.  fork() system call and switches control from user mode to kernel mode by issuing a trap passing control to the interrupt vector 0x80, when int 0x80 is executed the call transfers to the kernel entry point _system_call. This is the same for all system calls and saves all the registers.\\r\\n2.  The next instruction is the assembly instruction `pushl eax` which pushes a long onto the eax register that represents the actual system call.\\r\\n3.  Any arguments are sent to the other registers\\r\\n4.  The kernel executes the system call then returns the result to the user program\\r\\n5.  With the fork() execution by the kernel an _almost_ exact copy of the parent process is made called the child process with the following events:\\r\\n\\r\\n*   Child's task structure is allocated\\r\\n*   Child's task structure is filled from the parent\\r\\n*   Child's stack and user area's are allocated\\r\\n*   Child's user area filled from parent\\r\\n*   A Process ID (PID) is allocated for the child\\r\\n*   Child is set up to share parent's text\\r\\n*   Page tables for data and stack are copied\\r\\n\\r\\n*   Note: Many modern Linux systems give the child page tables but instead of copying them it just has them point to the parent's pages. If the child or parent attemptes to write on the page then a new copy of the page is allocated..this will save memory and is called a **copy on write.**\\r\\n\\r\\n*   Sharing of open files between child and parent is set up\\r\\n*   Parents registers are copied from parent to child\\r\\n\\r\\nThis series of steps creates a new shell almost identical to the parent except for:\\r\\n\\r\\n*   PID\\r\\n*   Parent's PID\\r\\n*   It has it's own copy of file descriptors and directory streams\\r\\n*   Process, text, data and memory locks\\r\\n*   Process times in the tms struct\\r\\n*   Resource utilizations for new process set at 0\\r\\n*   Pending signals initialize to the empty set\\r\\n*   Timers created not inherited\\r\\n*   Asynchronous input or output operations are not inherited\\r\\n\\r\\n### Processing the Command\\r\\n\\r\\nOnce the new child process is created we need to execute the command. which will be done with the `execve()`\\r\\n\\r\\nThe exec commands purpose is to replace the current program with the specified program. In bash there are a couple types of exec commands:\\r\\n\\r\\n*   `int execl(char *path, char *arg1, ... char* argn)`  \\r\\n    (uses strings as arguments from 1 to n)\\r\\n*   `int execv(char *path, char *arg[])`  \\r\\n    (uses an array of pointers to strings as arguments)\\r\\n\\r\\nThe specific command in this case is:\\r\\n\\r\\n<div class=\\\"well-sm\\\">`execve(\\\"\\/bin\\/ls\\\", [\\\"ls\\\", \\\"-l\\\", \\\"foo.cpp\\\", \\\"foobar\\\", \\\"fooie\\\"], [\\/* 68 vars *\\/])`<\\/div>\\r\\n\\r\\nAs you can see the first argument is the path, the second is an array of strings as arguments including the command \\\"ls\\\",\\\"-l\\\", \\\"foo.cpp\\\", \\\"foobar\\\",and \\\"fooie\\\", the final argument is the enviroment variables.\\r\\n\\r\\nAs you can see an expansion has occured. The original foo* argument was expanded with the current files in the directory that start with the specified parameter \\\"foo\\\", we'll get into how this happened in a later post.\\r\\n\\r\\nWhen the `execv()` is called on the valid command several steps occur to replace the current shell with ls.\\r\\n\\r\\n1.  First we find the executable program\\r\\n2.  Verify the executable permissions for the program\\r\\n3.  The shell reads the header then verifies it\\r\\n4.  The arguments and enviromental strings are copied to the kernel\\r\\n5.  The old address space is freed\\r\\n6.  A new address space is allocated\\r\\n7.  Arguments and enviromental variables are copied to stack\\r\\n8.  Signals are reset\\r\\n9.  Registers are initialized\\r\\n\\r\\nThe ls command is now ready to be executed in its new address space\\r\\n\\r\\n### The ls Command\\r\\n\\r\\n`opendir()` used open the current directory or directory listed\\r\\n\\r\\nNext using either the getdents() system call or readdir() with the current directory as the argument the program moves through each file in the directory\\r\\n\\r\\nAs we move through each item in the directory those that match the arguments in the execv() function are called with fstat(), a variation of stat() which finds the file name and the information for each file in the current working directory for output\\r\\n\\r\\nEach item that is found is the output to STDOUT (unless redirected) with a write() system call\\r\\n\\r\\nFinally closedir(3) is used and the user can now see the files that match the arguments in the output\",\n    \"postDate\": \"2020-02-10T07:00:00.000+00:00\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{env}}:{{port}}/addTechBlog",
+					"host": [
+						"{{env}}"
+					],
+					"port": "{{port}}",
+					"path": [
+						"addTechBlog"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

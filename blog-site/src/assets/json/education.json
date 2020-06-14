@@ -1,0 +1,50 @@
+[
+    {
+        "schoolName": "Oregon State University",
+        "location": {
+            "city": "Corvallis",
+            "state": "OR"
+        },
+        "startDate": "2014-09-01T07:00:00.000+00:00",
+        "endDate": "2017-12-01T08:00:00.000+00:00",
+        "degreeName": "Bachelor of Science: Computer Science",
+        "concentration": null,
+        "average": 3.98
+    },
+    {
+        "schoolName": "Keller Institute of Management",
+        "location": {
+            "city": "Federal Way",
+            "state": "WA"
+        },
+        "startDate": "2010-09-01T07:00:00.000+00:00",
+        "endDate": "2012-12-01T08:00:00.000+00:00",
+        "degreeName": "Master of Business Administration",
+        "concentration": "Information Systems Management",
+        "average": 3.92
+    },
+    {
+        "schoolName": "University of Washington",
+        "location": {
+            "city": "Seattle",
+            "state": "WA"
+        },
+        "startDate": "2003-09-01T07:00:00.000+00:00",
+        "endDate": "2008-06-13T07:00:00.000+00:00",
+        "degreeName": "Bachelor of Science : Molecular, Cellular and Developmental Biology",
+        "concentration": null,
+        "average": 3.46
+    },
+    {
+        "schoolName": "University of Washington",
+        "location": {
+            "city": "Seattle",
+            "state": "WA"
+        },
+        "startDate": "2003-09-01T07:00:00.000+00:00",
+        "endDate": "2008-06-13T07:00:00.000+00:00",
+        "degreeName": "Bachelor of Arts : Psychology",
+        "concentration": null,
+        "average": 3.46
+    }
+]

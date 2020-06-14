@@ -232,6 +232,13 @@ ul.nav {
 	font-size: 13px
 }
 
+.card {
+  background-color: transparent;
+}
+
+.blockquote-footer {
+  background-color: transparent;
+}
 
 footer {
 	background-color: #64B6AC;
@@ -249,9 +256,14 @@ footer {
   line-height: 1.0;
 }
 
+.bullets {
+	margin-bottom: 0;
+	line-height: 1.25;
+}
+
 .bullets li{
-	font-size: 100%;
-  line-height: 1.0;
+  font-size: 100%;
+  line-height: 1.25;
 }
 
 
