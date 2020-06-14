@@ -7,6 +7,8 @@
           v-model="form.projectName"
           required
           placeholder="Enter Project Name"
+          @input="setProjectName"
+          :value="form.projectName"
         ></b-form-input>
       </b-form-group>
 
@@ -16,6 +18,8 @@
           v-model="form.purpose"
           required
           placeholder="Enter Project Purpose"
+          @input="setPurpose"
+          :value="form.purpose"
         ></b-form-textarea>
       </b-form-group>
 
@@ -25,6 +29,8 @@
           v-model="form.repoAddress"
           required
           type="url"
+          @input="setAddress"
+          :value="form.repoAddress"
           placeholder="Enter GitHub Repository Location"
         ></b-form-input>
       </b-form-group>
@@ -43,6 +49,18 @@
         <b-button size="lg" variant="outline-secondary" type="reset">Reset</b-button>
       </b-button-group>
     </b-form>
+    
+    <br>
+    <b-card>
+      <h3><a :href="repoAddress">
+      <font-awesome-icon v-if="projectName" :icon="['fab', 'github']"></font-awesome-icon>
+      <strong> {{ projectName }} </strong></a></h3>
+      <ul class="bullets">
+        <li v-if="purpose"><strong> {{ purpose }} </strong></li>
+        <!--<li v-for="(attribute, index) in project.attributes" :key="index"> {{ attribute }} </li>-->
+      </ul>
+    </b-card>
+
   </div>
 </template>
 
@@ -62,7 +80,10 @@ export default {
         repoAddress: '',
         attributes: ''
       },
-      show: true
+      show: true,
+      projectName: '',
+      purpose: '',
+      repoAddress: ''
     }
   },
   methods: {
@@ -91,6 +112,15 @@ export default {
           this.data = response.data
           console.log(this.data)
       })
+    },
+    setProjectName: function () {
+      this.projectName = this.form.projectName
+    },
+    setPurpose: function () {
+      this.purpose = this.form.purpose
+    },
+    setAddress: function () {
+      this.repoAddress = this.form.repoAddress
     }
   }
 }

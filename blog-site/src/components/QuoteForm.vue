@@ -7,7 +7,7 @@
           v-model="form.quote"
           required
           placeholder="Enter quote"
-          @input="retQuote"
+          @input="setQuote"
           :value="form.quote"
         ></b-form-textarea>
       </b-form-group>
@@ -18,7 +18,7 @@
           v-model="form.author"
           required
           placeholder="Enter Author"
-          @input="retQuoteAuthor"
+          @input="setAuthor"
           :value="form.author"
         ></b-form-input>
       </b-form-group>
@@ -28,7 +28,7 @@
           id="input-3"
           v-model="form.reference"
           placeholder="Enter Source Reference"
-          @input="retQuoteSource"
+          @input="setSource"
           :value="form.reference"
         ></b-form-input>
       </b-form-group>
@@ -37,14 +37,13 @@
         <b-button size="lg" variant="outline-secondary" type="submit">Submit</b-button>
         <b-button size="lg" variant="outline-secondary" type="reset">Reset</b-button>
       </b-button-group>
-
     </b-form>
-
+    <br>
     <b-card>
       <blockquote class="blockquote mb-0">
-        <p>"{{ quote }}"</p>
-        <footer class="blockquote-footer">
-          {{ quoteAuthor }} <cite v-if="quoteSource" title="Source Title">Source Title</cite>
+        <p v-if="quote">"{{ quote }}"</p>
+        <footer class="blockquote-footer" v-if="quoteAuthor">
+          {{ quoteAuthor }} <cite v-if="quoteSource" title="Source Title">{{ quoteSource }}</cite>
         </footer>
       </blockquote>
     </b-card>
@@ -91,8 +90,8 @@ export default {
         this.show = true
       })
       this.quote = ''
-      this.quoteAuthor = ''
       this.quoteSource = ''
+      this.quoteAuthor = ''
     },
     sendFormInfo () {
       var baseUrl = process.env.VUE_APP_BASE_URL
@@ -103,27 +102,14 @@ export default {
           console.log(this.data)
       })
     },
-    compileQuote: function () {
+    setQuote: function () {
       this.quote = this.form.quote
-      console.log(this.quote)
     },
-    compileAuthor: function () {
+    setAuthor: function () {
       this.quoteAuthor = this.form.author
-      console.log(this.quoteAuthor)
     },
-    compileQuoteSource: function () {
+    setSource: function () {
       this.quoteSource = this.form.reference
-    }
-  },
-  computed: {
-    retQuote: function () {
-      return this.form.quote
-    },
-    retQuoteAuthor: function () {
-      return this.form.author
-    },
-    retQuoteSource: function () {
-      return this.form.reference
     }
   }
 }
