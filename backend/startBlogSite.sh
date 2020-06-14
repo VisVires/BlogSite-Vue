@@ -38,6 +38,6 @@ fi
 #  exit 1
 #fi
 
-java -jar /target/backend-0.0.1-SNAPSHOT.jar --spring.data.mongodb.password=${mongoPass}
+java -jar target/backend-0.0.1-SNAPSHOT.jar --spring.data.mongodb.password="${mongoPass}" --wgeorge.app.root.user="${userName}" --wgeorge.app.root.password="${password}"
 
 exit 0

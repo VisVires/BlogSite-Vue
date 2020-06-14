@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -32,6 +34,7 @@ import com.blogsite.blogvue.security.UserDetailsImpl;
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 public class AuthController {
+	Logger LOG = LoggerFactory.getLogger(AuthController.class);
 	
 	@Autowired
 	AuthenticationManager authenticationManager;
@@ -47,6 +50,8 @@ public class AuthController {
 
 	@Autowired
 	JwtUtils jwtUtils;
+	
+	Boolean improperRole = false;
 
 	@PostMapping("/auth/signin")
 	public ResponseEntity<?> authenticateUser(@RequestBody LoginRequest loginRequest) {
@@ -66,6 +71,7 @@ public class AuthController {
 				jwt, userDetails.getId(), userDetails.getUsername(), roles));
 	}
 	
+	
 	@PostMapping("/auth/signup")
 	public ResponseEntity<?> registerUser(@RequestBody SignupRequest signUpRequest) {
 		if (userRepository.existsByUsername(signUpRequest.getUsername())) {
@@ -73,7 +79,6 @@ public class AuthController {
 					.badRequest()
 					.body(new MessageResponse("Error: Username is already taken!"));
 		}
-
 		// Create new user's account
 		User user = new User(signUpRequest.getUsername(), 
 							 encoder.encode(signUpRequest.getPassword()));
@@ -91,8 +96,8 @@ public class AuthController {
 				case "admin":
 					Role adminRole = roleRepository.findByName(RoleEnum.ROLE_ADMIN)
 							.orElseThrow(() -> new RuntimeException("Error: Role is not found."));
+					improperRole = true;
 					roles.add(adminRole);
-
 					break;
 				default:
 					Role userRole = roleRepository.findByName(RoleEnum.ROLE_USER)
@@ -101,10 +106,14 @@ public class AuthController {
 				}
 			});
 		}
-
+		
+		if (improperRole) {
+			LOG.info(String.format("New user roles cannot be set via this method"));
+			return ResponseEntity.badRequest().body((new MessageResponse("Error: Current user cannot set role")));
+		}
+		
 		user.setRoles(roles);
 		userRepository.save(user);
-
 		return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
 	}
 }
