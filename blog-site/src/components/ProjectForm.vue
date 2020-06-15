@@ -35,13 +35,15 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="project-input-group-4" label="Project Attribute:" label-for="project-input-4">
+      <b-form-group id="project-input-group-4" label="Project Attribute:" label-for="project-attribute-input">
         <b-form-input
-          id="project-input-4"
+          class="project-attribute-input"
           v-model="form.attribute"
           required
           placeholder="Enter Attribute"
+          :value="form.attribute"
         ></b-form-input>
+        <b-button size="md" variant="outline-secondary" @click="addAttribute" type="button">Add More..</b-button>
       </b-form-group>
 
       <b-button-group>
@@ -57,7 +59,11 @@
       <strong> {{ projectName }} </strong></a></h3>
       <ul class="bullets">
         <li v-if="purpose"><strong> {{ purpose }} </strong></li>
-        <!--<li v-for="(attribute, index) in project.attributes" :key="index"> {{ attribute }} </li>-->
+        <li v-for="(attribute, index) in attributes" :key="index">
+          {{ attribute }}
+          <font-awesome-icon :icon="['far', 'minus-square']">
+          </font-awesome-icon> 
+       </li>
       </ul>
     </b-card>
 
@@ -81,6 +87,8 @@ export default {
         attributes: []
       },
       show: true,
+      attribute: '',
+      attributes: [],
       projectName: '',
       purpose: '',
       repoAddress: ''
@@ -107,6 +115,16 @@ export default {
       this.projectName = ''
       this.purpose = ''
       this.repoAddress = ''
+    },
+    addAttribute() {
+      console.log("Adding")
+      this.form.attributes.push(this.form.attribute)
+      this.attributes.push(this.form.attribute)
+      this.form.attribute = ''
+    },
+    removeAttribute() {
+      this.form.attributes.push(this.attribute)
+      this.attribute=''
     },
     sendFormInfo () {
       var baseUrl = process.env.VUE_APP_BASE_URL
