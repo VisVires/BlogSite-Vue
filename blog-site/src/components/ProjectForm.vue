@@ -39,12 +39,23 @@
         <b-form-input
           class="project-attribute-input"
           v-model="form.attribute"
-          required
           placeholder="Enter Attribute"
           :value="form.attribute"
         ></b-form-input>
-        <b-button size="md" variant="outline-secondary" @click="addAttribute" type="button">Add More..</b-button>
       </b-form-group>
+      <b-form-group>
+        <b-button size="md" variant="outline-secondary" @click="addAttribute" type="button">Add More Attributes..</b-button>
+      </b-form-group>
+      <b-form-group id="project-input-group-4" label="Attributes:" label-for="project-attribute-input">
+        <ul>
+          <li v-for="(attribute, index) in attributes" :key="index">
+            {{ attribute }}
+            <font-awesome-icon @click="removeAttribute(index)" :icon="['far', 'minus-square']">
+            </font-awesome-icon> 
+          </li>
+        </ul>
+      </b-form-group>
+
 
       <b-button-group>
         <b-button size="lg" variant="outline-secondary" type="submit">Submit</b-button>
@@ -61,8 +72,6 @@
         <li v-if="purpose"><strong> {{ purpose }} </strong></li>
         <li v-for="(attribute, index) in attributes" :key="index">
           {{ attribute }}
-          <font-awesome-icon @click="removeAttribute(index)" :icon="['far', 'minus-square']">
-          </font-awesome-icon> 
        </li>
       </ul>
     </b-card>
@@ -97,9 +106,8 @@ export default {
   methods: {
     onSubmit(evt) {
       evt.preventDefault()
-      this.setDate()
       this.sendFormInfo()
-      alert(JSON.stringify(this.form))
+      console.log(JSON.stringify(this.form))
     },
     onReset(evt) {
       evt.preventDefault()
@@ -117,14 +125,15 @@ export default {
       this.repoAddress = ''
     },
     addAttribute() {
-      console.log("Adding")
+      console.log("Adding '" + this.form.attribute + "'")
       this.form.attributes.push(this.form.attribute)
       this.attributes.push(this.form.attribute)
       this.form.attribute = ''
     },
     removeAttribute(index) {
-      this.form.attributes.push(this.attribute)
-      this.attribute=''
+      console.log("Removing '" + this.form.attributes[index] + "'")
+      this.form.attributes.splice(index,1)
+      this.attributes.splice(index,1)
     },
     sendFormInfo () {
       var baseUrl = process.env.VUE_APP_BASE_URL
