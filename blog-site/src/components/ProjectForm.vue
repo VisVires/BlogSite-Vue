@@ -61,7 +61,7 @@
         <li v-if="purpose"><strong> {{ purpose }} </strong></li>
         <li v-for="(attribute, index) in attributes" :key="index">
           {{ attribute }}
-          <font-awesome-icon :icon="['far', 'minus-square']">
+          <font-awesome-icon @click="removeAttribute(index)" :icon="['far', 'minus-square']">
           </font-awesome-icon> 
        </li>
       </ul>
@@ -122,7 +122,7 @@ export default {
       this.attributes.push(this.form.attribute)
       this.form.attribute = ''
     },
-    removeAttribute() {
+    removeAttribute(index) {
       this.form.attributes.push(this.attribute)
       this.attribute=''
     },
