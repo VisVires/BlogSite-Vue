@@ -38,10 +38,6 @@ fi
 #	exit 1
 #fi
 
-echo ${mongoPass}
-echo ${userName}
-echo ${password}
-
 ./mvnw spring-boot:run -Dspring-boot.run.arguments="--spring.data.mongodb.password=${mongoPass} --wgeorge.app.root.user=${userName} --wgeorge.app.root.password=${password}"
 
 exit 0

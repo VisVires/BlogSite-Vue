@@ -35,14 +35,27 @@
         ></b-form-input>
       </b-form-group>
 
-      <b-form-group id="project-input-group-4" label="Project Attribute:" label-for="project-input-4">
+      <b-form-group id="project-input-group-4" label="Project Attribute:" label-for="project-attribute-input">
         <b-form-input
-          id="project-input-4"
-          v-model="form.attribute"
-          required
+          class="project-attribute-input"
+          v-model="attribute"
           placeholder="Enter Attribute"
+          :value="attribute"
         ></b-form-input>
       </b-form-group>
+      <b-form-group>
+        <b-button size="md" variant="outline-secondary" @click="addAttribute" type="button">Add More Attributes..</b-button>
+      </b-form-group>
+      <b-form-group id="project-input-group-4" label="Attributes:" label-for="project-attribute-input">
+        <ul>
+          <li v-for="(attribute, index) in attributes" :key="index">
+            {{ attribute }}
+            <font-awesome-icon @click="removeAttribute(index)" :icon="['far', 'minus-square']">
+            </font-awesome-icon> 
+          </li>
+        </ul>
+      </b-form-group>
+
 
       <b-button-group>
         <b-button size="lg" variant="outline-secondary" type="submit">Submit</b-button>
@@ -57,7 +70,9 @@
       <strong> {{ projectName }} </strong></a></h3>
       <ul class="bullets">
         <li v-if="purpose"><strong> {{ purpose }} </strong></li>
-        <!--<li v-for="(attribute, index) in project.attributes" :key="index"> {{ attribute }} </li>-->
+        <li v-for="(attributeElement, index) in attributes" :key="index">
+          {{ attributeElement }}
+       </li>
       </ul>
     </b-card>
 
@@ -81,6 +96,8 @@ export default {
         attributes: []
       },
       show: true,
+      attribute: '',
+      attributes: [],
       projectName: '',
       purpose: '',
       repoAddress: ''
@@ -89,9 +106,8 @@ export default {
   methods: {
     onSubmit(evt) {
       evt.preventDefault()
-      this.setDate()
       this.sendFormInfo()
-      alert(JSON.stringify(this.form))
+      console.log(JSON.stringify(this.form))
     },
     onReset(evt) {
       evt.preventDefault()
@@ -99,6 +115,7 @@ export default {
       this.form.projectName = ''
       this.form.purpose = ''
       this.form.repoAddress = ''
+      this.form.attributes.length = 0
       // Trick to reset/clear native browser form validation state
       this.show = false
       this.$nextTick(() => {
@@ -107,6 +124,19 @@ export default {
       this.projectName = ''
       this.purpose = ''
       this.repoAddress = ''
+      this.attribute = ''
+      this.attributes.length = 0
+    },
+    addAttribute() {
+      console.log("Adding '" + this.attribute + "'")
+      this.form.attributes.push(this.attribute)
+      this.attributes.push(this.attribute)
+      this.attribute = ''
+    },
+    removeAttribute(index) {
+      console.log("Removing '" + this.form.attributes[index] + "'")
+      this.form.attributes.splice(index,1)
+      this.attributes.splice(index,1)
     },
     sendFormInfo () {
       var baseUrl = process.env.VUE_APP_BASE_URL
@@ -114,7 +144,6 @@ export default {
         .post(baseUrl + '/addProject', this.form, { headers: authHeader() })
         .then(response => {
           this.data = response.data
-          console.log(this.data)
       })
     },
     setProjectName: function () {
