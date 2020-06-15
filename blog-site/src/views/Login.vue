@@ -56,7 +56,7 @@ export default {
   created() {
     if (this.loggedIn) {
       console.log('loggedIn')
-      this.$router.push('/profile');
+      this.$router.push('/admin');
     }
   },
   methods: {
@@ -64,13 +64,11 @@ export default {
       this.loading = true;
       this.$store.dispatch('auth/login', this.user).then(
         () => {
-          this.$router.push('/profile');
+          this.$router.push('/admin');
         },
         error => {
           this.message =
-            (error.response && error.response.data) ||
-            error.message ||
-            error.toString();
+            error.response.data.error
         }
       )
     }

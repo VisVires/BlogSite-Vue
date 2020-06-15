@@ -5,6 +5,7 @@ import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { faGithub, faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope, faMinusSquare } from '@fortawesome/free-regular-svg-icons'
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import store from '@/store'
 import router from '@/router'
@@ -13,7 +14,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 import '@/assets/css/custom.css'
 
-library.add(faGithub, faInstagram, faLinkedin, faEnvelope, faMinusSquare)
+library.add(faGithub, faInstagram, faLinkedin, faEnvelope, faMinusSquare, faSignOutAlt)
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 Vue.use(Vuex)
