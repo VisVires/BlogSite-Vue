@@ -38,9 +38,9 @@
       <b-form-group id="project-input-group-4" label="Project Attribute:" label-for="project-attribute-input">
         <b-form-input
           class="project-attribute-input"
-          v-model="form.attribute"
+          v-model="attribute"
           placeholder="Enter Attribute"
-          :value="form.attribute"
+          :value="attribute"
         ></b-form-input>
       </b-form-group>
       <b-form-group>
@@ -70,8 +70,8 @@
       <strong> {{ projectName }} </strong></a></h3>
       <ul class="bullets">
         <li v-if="purpose"><strong> {{ purpose }} </strong></li>
-        <li v-for="(attribute, index) in attributes" :key="index">
-          {{ attribute }}
+        <li v-for="(attributeElement, index) in attributes" :key="index">
+          {{ attributeElement }}
        </li>
       </ul>
     </b-card>
@@ -115,6 +115,7 @@ export default {
       this.form.projectName = ''
       this.form.purpose = ''
       this.form.repoAddress = ''
+      this.form.attributes.length = 0
       // Trick to reset/clear native browser form validation state
       this.show = false
       this.$nextTick(() => {
@@ -123,12 +124,14 @@ export default {
       this.projectName = ''
       this.purpose = ''
       this.repoAddress = ''
+      this.attribute = ''
+      this.attributes.length = 0
     },
     addAttribute() {
-      console.log("Adding '" + this.form.attribute + "'")
-      this.form.attributes.push(this.form.attribute)
-      this.attributes.push(this.form.attribute)
-      this.form.attribute = ''
+      console.log("Adding '" + this.attribute + "'")
+      this.form.attributes.push(this.attribute)
+      this.attributes.push(this.attribute)
+      this.attribute = ''
     },
     removeAttribute(index) {
       console.log("Removing '" + this.form.attributes[index] + "'")
@@ -141,7 +144,6 @@ export default {
         .post(baseUrl + '/addProject', this.form, { headers: authHeader() })
         .then(response => {
           this.data = response.data
-          console.log(this.data)
       })
     },
     setProjectName: function () {
