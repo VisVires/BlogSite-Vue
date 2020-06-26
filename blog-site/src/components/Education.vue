@@ -1,5 +1,5 @@
 <template>
-  <div id="education">
+  <div id="education" v-if="degrees.length">
       <h2><strong>EDUCATION</strong></h2>
       <hr color="#5D737E"> 
       <b-table-simple>
@@ -19,7 +19,11 @@
         </b-tbody>
       </b-table-simple>
       <hr>
-    </div>
+  </div>
+  <div v-else>
+    <h5>Sorry! There seems to be an issue, hit the email button below and let me know!</h5>
+    <hr>
+  </div>
 </template>
 
 <script>

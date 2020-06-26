@@ -1,6 +1,6 @@
 <template>
   <div id="quote">
-    <b-card>
+    <b-card v-if="quote.quote">
     <h5>Quote of the Week</h5>
       <blockquote class="blockquote mb-0">
         <p>"{{ quote.quote }}"</p>

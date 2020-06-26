@@ -15,9 +15,11 @@
     <!--In Tech-->
     <hr>
     <h4><em>In Tech...</em></h4>
-    <p>As a Computer Science Graduate from Oregon State University the importance of continuing education has never been more apparent. While the program outlined the most important aspects of Computer Science, the field changes so quickly that it can be hard to keep up if you let your guard down for a second. From my first exposure to programming in Grad School back in 2011 to today so much has changed. As such I've taken it upon myself to work on personal projects and certifications to better understand the ever-changing technological landscape </p>
-    <p>I've developed a special fascination with distributed computing models and the science behind them. Because of this fascination I've been focused on understanding the tools available to developers through AWS. As such, I've been working to complete a few of their certifications as well as others from agenies that interest me. Just recently I completed the AWS Solutions Architect - Associate Certification: </p>
+    <p>After Graduating from Oregon State University the importance of continuing education has never been more apparent, especially in this field. While the University program outlined the most important aspects of Computer Science, the field changes so quickly that it can be hard to keep up if you let your guard down for a second. From my first exposure to programming in Grad School back in 2011 to today so much has changed. As such I've taken it upon myself to work on personal projects and certifications to better understand the ever-changing technological landscape </p>
+    <p>I've developed a special fascination with distributed computing models and the science behind them. Because of this fascination I've been focused on understanding the tools available to developers through AWS. As such, I've been working to complete a few of their certifications as well as others from agencies that interest me. <br> Just recently I completed the AWS Solutions Architect - Associate Certification: </p>
     <a href="https://www.youracclaim.com/badges/b47be1e7-eb08-41a1-98ec-4ad5639b627a/public_url"><img class="img-fluid" src="@/assets/images/badges/AWS-SolArchitect-Associate.png" alt="AWS-CSA Badge"></a>
+    <br>
+    <br>
     <p>Now I'm working towards earning the following certifications to better my personal understanding of the tools available to developers:</p>
       <ul>
         <li>AWS Certified Developer - Associate</li>

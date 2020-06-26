@@ -1,5 +1,5 @@
 <template>
-  <div id="work-history">
+  <div id="work-history" v-if="jobs.length">
       <h2><strong>WORK EXPERIENCE</strong></h2>
       <hr color="#5D737E"> 
       <b-table-simple>

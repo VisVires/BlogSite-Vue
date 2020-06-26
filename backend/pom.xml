@@ -88,6 +88,7 @@
                                         <include>static/</include>
                                         <include>index.html</include>
 										<include>favicon.ico</include>
+										<include>pdf/*</include>
                                     </includes>
                                 </resource>
                             </resources>
