@@ -42,6 +42,7 @@ export default {
       .then(response => {
         this.projects = response.data
       })
+      .catch(error => console.log(error))
   }
 }
 </script>

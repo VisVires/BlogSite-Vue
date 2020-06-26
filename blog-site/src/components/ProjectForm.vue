@@ -144,7 +144,8 @@ export default {
         .post(baseUrl + '/addProject', this.form, { headers: authHeader() })
         .then(response => {
           this.data = response.data
-      })
+        })
+        .catch(error => console.log(error))
     },
     setProjectName: function () {
       this.projectName = this.form.projectName

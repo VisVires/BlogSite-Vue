@@ -43,8 +43,8 @@ export default {
       .get(baseUrl + '/education')
       .then(response => {
         this.degrees = response.data
-      }
-      )
+      })
+      .catch(error => console.log(error))
   }
 }
 </script>

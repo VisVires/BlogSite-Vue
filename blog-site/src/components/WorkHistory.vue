@@ -50,6 +50,7 @@ export default {
       .then(response => {
         this.jobs = response.data
       })
+      .catch(error => console.log(error))
   }
 }
 </script>
