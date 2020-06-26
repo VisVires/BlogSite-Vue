@@ -1,12 +1,14 @@
 <template>
   <div class="resume">
       <h1 style="text-align: left" class="blog-title"><strong>William George</strong></h1>
-      <b-button id="download" role="button" href="../assets/resume/williamgeorge_cv.pdf" download>Download A Copy</b-button>
+      <b-button id="download" role="button" href="./pdf/WILLIAM_GEORGE_CV.pdf" download>Download A Copy</b-button>
     <hr>
     <Education></Education>
+    <Certifications></Certifications>
     <WorkHistory></WorkHistory>
     <div id="skills">
       <h2><strong>SKILLS</strong></h2>
+      <hr color="#5D737E"> 
       <b-table-simple id="skills-b-table-simple">
         <b-thead class="skill_head">
           <b-tr>
@@ -57,12 +59,14 @@
 
 import Education from '@/components/Education.vue'
 import WorkHistory from '@/components/WorkHistory.vue'
+import Certifications from '@/components/Certifications.vue'
 
 export default {
   name: 'Resume',
   components: {
     Education,
-    WorkHistory
+    WorkHistory,
+    Certifications
   }
 }
 </script>

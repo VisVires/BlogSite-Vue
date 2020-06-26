@@ -16,32 +16,14 @@
     <hr>
     <h4><em>In Tech...</em></h4>
     <p>As a Computer Science Graduate from Oregon State University the importance of continuing education has never been more apparent. While the program outlined the most important aspects of Computer Science, the field changes so quickly that it can be hard to keep up if you let your guard down for a second. From my first exposure to programming in Grad School back in 2011 to today so much has changed. As such I've taken it upon myself to work on personal projects and certifications to better understand the ever-changing technological landscape </p>
-    <p>I've developed a special fascination with distributed computing models and the science behind them. Because of this fascination I've been focused on understanding the tools available to developers through AWS.</p>
-    <h5>As such I'm working on the following certifications:</h5>
+    <p>I've developed a special fascination with distributed computing models and the science behind them. Because of this fascination I've been focused on understanding the tools available to developers through AWS. As such, I've been working to complete a few of their certifications as well as others from agenies that interest me. Just recently I completed the AWS Solutions Architect - Associate Certification: </p>
+    <a href="https://www.youracclaim.com/badges/b47be1e7-eb08-41a1-98ec-4ad5639b627a/public_url"><img class="img-fluid" src="@/assets/images/badges/AWS-SolArchitect-Associate.png" alt="AWS-CSA Badge"></a>
+    <p>Now I'm working towards earning the following certifications to better my personal understanding of the tools available to developers:</p>
       <ul>
-        <li>AWS Certified Developer</li>
-        <li>AWS Certified Solutions Architect</li>
+        <li>AWS Certified Developer - Associate</li>
+        <li>CompTIA Security+</li>
       </ul>
-    <!--Current Projects-->
-    <h5>Current Projects</h5>
-    <p>I'm working on several small things right now, specifically:</p>
-    <ul>
-      <li>A Flash Card Application including the following features:</li>
-        <ul>
-          <li>A .CSV to .JSON converter built in Python to easily move flash card info into a usable JSON file for a yet to be built RESTful API</li>
-          <li>An (interface dependent) input mode for incorrect answers so they are run through again</li>
-          <li>A file storage tool like S3 to drop CSV files into for conversion into usable flash cards</li>
-          <li>A Web based Interface with ReactJS</li>
-          <li>Android and iOS Interfaces</li>
-        </ul>
-      <li>Completing the PinchTest Web Interface</li>
-      <li>Making this site more robust by adding:</li>
-      <ul>
-        <li>A NoSQL backend using DynamoDB and date keys for tech and fitness blog posts</li>
-        <li>An templating mode for sharing photos to the photography page</li>
-        <li>Facebook based commenting for blog posts</li>
-      </ul>
-    </ul>
+
     <h5>To see more of what I'm working on or learning check out my <router-link to="/tech">Tech Blog</router-link> where I'll go over a variety of different things that interest me</h5>
     <hr>
   </div>

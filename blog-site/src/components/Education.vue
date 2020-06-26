@@ -1,6 +1,7 @@
 <template>
   <div id="education">
       <h2><strong>EDUCATION</strong></h2>
+      <hr color="#5D737E"> 
       <b-table-simple>
         <b-tbody>
           <b-tr v-for="degree in degrees" :key="degree.schoolId">

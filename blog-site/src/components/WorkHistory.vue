@@ -1,6 +1,7 @@
 <template>
   <div id="work-history">
       <h2><strong>WORK EXPERIENCE</strong></h2>
+      <hr color="#5D737E"> 
       <b-table-simple>
         <b-tbody>
           <b-tr v-for="job in jobs" :key="job.jobId">
@@ -27,7 +28,7 @@
           </b-tr>
         </b-tbody>
       </b-table-simple>
-      <br>
+      <hr color="#5D737E"> 
     </div>
 </template>
 
