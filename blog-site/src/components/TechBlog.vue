@@ -1,5 +1,5 @@
 <template>
-  <div id="tech-blog" v-if="currPost">
+  <div id="tech-blog" v-if="posts.length">
     <h2>{{ currPost.postTitle }}</h2>
     <p>{{ convertDate(currPost.postDate, 'full') }}</p>
     <div v-html="input"></div>
