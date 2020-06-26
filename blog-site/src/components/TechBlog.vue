@@ -51,8 +51,15 @@ export default {
         this.posts = response.data
         this.currPost = this.posts[0]
         this.pages = this.posts.length
-        this.input = dompurify.sanitize(marked(this.currPost.text))
+        try {
+          this.input = dompurify.sanitize(marked(this.currPost.text))
+        } catch (e) {
+          if (e instanceof TypeError) {
+            console.log("No BlogPosts Yet")
+          }
+        }
       })
+      .catch(error => console.log(error))
   }
 }
 </script>
