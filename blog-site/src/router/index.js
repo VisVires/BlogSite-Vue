@@ -52,7 +52,7 @@ const routes = [
       } else {
         next();
       }
-    } 
+    }
   },
   {
     path: '/profile',
