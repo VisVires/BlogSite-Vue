@@ -1,5 +1,5 @@
 <template>
-  <div class="project-table">
+  <div class="project-table" v-if="projects.length">
     <h1 style="text-align:left"><strong>NOTABLE PROJECTS</strong></h1>
     <hr class="style3">
     <b-table-simple>
@@ -17,6 +17,10 @@
         </b-tr>
       </b-tbody>
     </b-table-simple>
+  </div>
+  <div v-else>
+    <br>
+    <h5>Sorry! There seems to be an issue, hit the email button below and let me know!</h5>
   </div>
 </template>
 
@@ -38,6 +42,7 @@ export default {
       .then(response => {
         this.projects = response.data
       })
+      .catch(error => console.log(error))
   }
 }
 </script>

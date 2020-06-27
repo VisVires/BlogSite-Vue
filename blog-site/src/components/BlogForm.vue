@@ -86,7 +86,8 @@ export default {
         .then(response => {
           this.data = response.data
           console.log(this.data)
-      })
+        })
+        .catch(error => console.log(error))
     },
     compileMarkdown: function() {
       this.markdown = marked(this.form.text);

@@ -1,5 +1,5 @@
 <template>
-  <div id="quote">
+  <div id="quote" v-if="quote.quote">
     <b-card>
     <h5>Quote of the Week</h5>
       <blockquote class="blockquote mb-0">
@@ -30,6 +30,7 @@ export default {
       .then(response => {
         this.quote = response.data
       })
+      .catch(error => console.log(error))
   }
 }
 </script>
