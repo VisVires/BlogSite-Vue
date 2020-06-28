@@ -15,7 +15,6 @@ export default {
   name: 'TechBlog',
   props: {
     currPost : Object
-    //input : String
   },
   data () {
     return {
