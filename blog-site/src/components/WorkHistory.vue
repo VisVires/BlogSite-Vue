@@ -43,7 +43,7 @@ export default {
       jobs: []
     }
   },
-  mounted () {
+  created () {
     var baseUrl = process.env.VUE_APP_BASE_URL
     axios
       .get(baseUrl + '/jobs')
