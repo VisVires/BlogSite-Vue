@@ -15,6 +15,19 @@
         <img class="img-fluid" src="@/assets/images/iceCaves.jpg" alt="Ice Caves" align="right">
       </div>
     </div>
+    <div class="row" v-else-if="isLandscape">
+      <div class="col-sm-12">
+        <h1><strong>HEY! I'M WILLIAM GEORGE</strong></h1>
+        <h4>Java Developer, Computer Science Graduate, MBA Graduate, Cell and Molecular Biology Graduate, Psychology Graduate, Military Brat, Husky, Small Business Owner, Former Professional Strength Coach, Landscape Photographer, Minimalistic World Traveller, and Outdoor Enthusiast</h4>
+        <br>
+        <!--Who Am I-->
+        <h5>As you can see I've worn a lot of hats throughout my personal and professional life
+        This is because of my passion for personal growth and the understanding that growth only comes from challenging oneself. I've been a life-long learner with over 12 years of post high school education, earning 3 Bachelor Degrees and an MBA with a concentration on Information Manangement Systems. As such a lot of things can define who I am, too much to fit on any sort of resume. My journey has been a long one but each step has led me to the next.</h5>
+        <br>
+        <h5>However the purpose of this page is not to tell you who I am or where I came from, rather, it's to show you where I'm going next.</h5>
+        <img class="img-fluid" src="@/assets/images/iceCaves.jpg" alt="Ice Caves">
+      </div>
+    </div>
     <div class="row" v-else>
       <div class="col-sm-12">
         <h1><strong>HEY! I'M WILLIAM GEORGE</strong></h1>
@@ -55,6 +68,26 @@
 export default {
   name: 'Home',
   components: {
+  },
+  data () {
+    return {
+      isMobile: false,
+      isLandscape: false
+    } 
+  },
+  mounted() {
+    window.addEventListener(
+      "orientationchange",
+      this.handleOrientationChange
+    );
+  },
+  methods: {
+    handleOrientationChange() {
+      const orientation = window.screen.orientation.type
+      if (orientation === "landscape-primary" && this.isMobile) {
+        this.isLandscape = true
+      }
+    }
   },
   created () { 
     if (screen.width <= 760) {

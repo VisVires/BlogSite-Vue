@@ -33,6 +33,23 @@
           </div>
         </div>
       </div>
+      <div class="row" v-else-if="isLandscape">
+        <div class="col-sm-12">
+          <Quote></Quote>
+          <hr>
+          <div id="techblog-post" v-if="posts.length">
+            <TechBlog :currPost="currPost"></TechBlog>
+            <b-button-group>
+              <b-button size="lg" variant="outline-secondary" type="button" @click="prevPage" :disabled="currentPage==0">Prev Post</b-button>
+              <b-button size="lg" variant="outline-secondary" type="button" @click="nextPage" :disabled="currentPage >= pages-1">Next Post</b-button>
+            </b-button-group>
+            <hr>
+          </div>
+          <div v-else>
+            <h5>Sorry! There seems to be an issue, hit the email button below and let me know!</h5>
+          </div>
+        </div>
+      </div>
       <div class="row" v-else>
         <div class="col-sm-12">
           <Quote></Quote>
@@ -72,8 +89,15 @@ export default {
       posts: [],
       currentPage: 0,
       pages: 0,
-      isMobile: false
+      isMobile: false,
+      isLandscape: false,
     }
+  },
+  mounted() {
+    window.addEventListener(
+      "orientationchange",
+      this.handleOrientationChange
+    )
   },
   methods: {
     nextPage() {
@@ -83,10 +107,15 @@ export default {
     prevPage() {
       this.currentPage--
       this.currPost = this.posts[this.currentPage]
+    },
+    handleOrientationChange() {
+      const orientation = window.screen.orientation.type
+      if (orientation === "landscape-primary" && this.isMobile) {
+        this.isLandscape = true
+      }
     }
   },
   created () {
-    
     if (screen.width <= 760) {
       this.isMobile = true
     } else {
