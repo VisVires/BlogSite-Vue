@@ -13,7 +13,7 @@
           <b-nav-item v-if="showAdmin" to="/admin">ADMIN</b-nav-item>
         </b-navbar-nav>
 
-        <b-navbar-nav >
+        <b-navbar-nav>
           <b-nav-item v-if="showAdmin" @click.prevent="logOut">
             <font-awesome-icon :icon="['fas', 'sign-out-alt']"> </font-awesome-icon>
             LOG OUT
