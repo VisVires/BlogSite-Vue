@@ -6,11 +6,16 @@
       </b-jumbotron>
     </div>
     <b-container fluid>
-      <b-row>
+      <b-row v-if="!isMobile">
         <b-col sm="2">
-          <SideBar v-if="!isMobile"></SideBar>
+          <SideBar></SideBar>
         </b-col>
         <b-col sm="10">
+          <router-view/>
+        </b-col>
+      </b-row>
+      <b-row v-else>
+        <b-col sm="12">
           <router-view/>
         </b-col>
       </b-row>
