@@ -307,6 +307,9 @@ footer {
     font-size: 16px;
     padding: 0;
   }
+  .jumbotron {
+    background-image: url(../images/background/sailboat.jpg);
+  }
   .btn-lg {
     font-size: 18px;
   }
