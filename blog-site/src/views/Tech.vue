@@ -23,7 +23,7 @@
           </div>
         </div>
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
-          <div class="sidebar-module sidebar-module-inset">
+          <div v-if="!isMobile" class="sidebar-module sidebar-module-inset">
             <h4>About</h4>
               <p>The purpose of this blog is to both give the reader a window into <em>what I'm learning right now</em> and specific topics that interest me in the broad world of Computer Science</p>
           </div>
@@ -54,7 +54,8 @@ export default {
       currPost: {},
       posts: [],
       currentPage: 0,
-      pages: 0
+      pages: 0,
+      isMobile: false
     }
   },
   methods: {
@@ -68,6 +69,13 @@ export default {
     }
   },
   created () {
+    
+    if (screen.width <= 760) {
+      this.isMobile = true
+    } else {
+      this.isMobile = false
+    }
+
     var baseUrl = process.env.VUE_APP_BASE_URL
     axios
       .get(baseUrl + '/techBlog')

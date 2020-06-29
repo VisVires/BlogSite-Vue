@@ -1,8 +1,8 @@
 <template>
   <div class="navbar">
     <b-navbar toggleable="sm" sticky>
-      <b-navbar-toggle target="nav-text-collapse"></b-navbar-toggle>
       <b-navbar-brand to="/">WILLIAM GEORGE</b-navbar-brand>
+      <b-navbar-toggle align="left" target="nav-text-collapse"></b-navbar-toggle>
       <b-collapse id="nav-text-collapse" is-nav>
         <b-navbar-nav>
           <b-nav-item to="/">ABOUT ME</b-nav-item>
