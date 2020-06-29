@@ -1,11 +1,6 @@
 <template>
   <div id="app">
-    <div v-if="!isMobile">
-      <NavBar></NavBar>
-    </div>
-    <div v-else>
-      <MobileNavBar></MobileNavBar>
-    </div>
+    <NavBar></NavBar>
     <div class="jumbotron">
       <b-jumbotron>
       </b-jumbotron>
@@ -27,7 +22,6 @@
 <script>
 
 import NavBar from '@/components/NavBar.vue'
-import MobileNavBar from '@/components/MobileNavBar.vue'
 import SideBar from '@/components/SideBar.vue'
 import Footer from '@/components/Footer.vue'
 
@@ -36,8 +30,7 @@ export default {
   components: {
     SideBar,
     NavBar,
-    Footer,
-    MobileNavBar
+    Footer
   },
   data () {
     return {

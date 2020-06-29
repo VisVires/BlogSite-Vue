@@ -1,8 +1,8 @@
 <template>
   <div class="navbar">
-    <b-navbar toggleable="sm" sticky>
+    <b-navbar toggleable="lg" sticky class="ml-auto">
       <b-navbar-brand to="/">WILLIAM GEORGE</b-navbar-brand>
-      <b-navbar-toggle align="right" target="nav-text-collapse"></b-navbar-toggle>
+      <b-navbar-toggle target="nav-text-collapse"></b-navbar-toggle>
       <b-collapse id="nav-text-collapse" is-nav>
         <b-navbar-nav>
           <b-nav-item to="/">ABOUT ME</b-nav-item>
@@ -12,15 +12,15 @@
           <b-nav-item to="/photography">PHOTOGRAPHY</b-nav-item>
           <b-nav-item v-if="showAdmin" to="/admin">ADMIN</b-nav-item>
         </b-navbar-nav>
+
+        <b-navbar-nav >
+          <b-nav-item v-if="showAdmin" @click.prevent="logOut">
+            <font-awesome-icon :icon="['fas', 'sign-out-alt']"> </font-awesome-icon>
+            LOG OUT
+          </b-nav-item>
+        </b-navbar-nav>
+
       </b-collapse>
-    </b-navbar>
-    <b-navbar>
-      <b-navbar-nav>
-        <b-nav-item v-if="showAdmin" style="text-align=left" @click.prevent="logOut">
-          <font-awesome-icon :icon="['fas', 'sign-out-alt']"> </font-awesome-icon>
-          LOG OUT
-        </b-nav-item>
-      </b-navbar-nav>
     </b-navbar>
   </div>
 </template>
