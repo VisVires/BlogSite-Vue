@@ -60,9 +60,9 @@ public class BlogVueApplication implements CommandLineRunner {
 	
 	@Override
 	public void run(String... args) throws Exception { 
-		deleteRepos();
-		loadRoles();
-		if (setRoot) {
+		if (setRoot) {	
+			deleteRepos();
+			loadRoles();
 			loadRootUser();
 		}
 	}
