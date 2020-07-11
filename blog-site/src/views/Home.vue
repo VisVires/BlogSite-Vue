@@ -48,13 +48,13 @@
     <hr>
     <h4><em>In Tech...</em></h4>
     <p>After Graduating from Oregon State University the importance of continuing education has never been more apparent, especially in this field. While the University program outlined the most important aspects of Computer Science, the field changes quickly and it can be hard to keep up if you let your guard down for even a second. From my first exposure to programming in Grad School back in 2011 to today much has changed, and so I've taken it upon myself to work on personal projects and certifications to better understand the technological landscape </p>
-    <p>I've developed a special fascination with distributed computing models and the science behind them. Because of this fascination I've been focused on understanding the tools available to developers through AWS. As such, I've been working to complete a few of their certifications as well as others from agencies that interest me. <br> Just recently I completed the AWS Solutions Architect - Associate Certification: </p>
+    <p>I've developed a special fascination with distributed computing models and the science behind them. Because of this fascination I've been focused on understanding the tools available to developers through AWS. As such, I've been working to complete a few of their certifications as well as others from agencies that interest me. <br> Just recently I completed the AWS Solutions Architect - Associate and the AWS Certified Developer - Associate Certifications: </p>
     <a href="https://www.youracclaim.com/badges/b47be1e7-eb08-41a1-98ec-4ad5639b627a/public_url"><img class="img-fluid" src="@/assets/images/badges/AWS-SolArchitect-Associate.png" alt="AWS-CSA Badge"></a>
+    <a href="https://www.youracclaim.com/badges/21d93406-d56b-4b26-a72e-7b8492bce859/public_url"><img class="img-fluid" src="@/assets/images/badges/AWS-Developer-Associate.png" alt="AWS-CDA Badge"></a>
     <br>
     <br>
-    <p>Now I'm working towards earning the following certifications to better my personal understanding of the tools available to developers:</p>
+    <p>Now I'm working towards earning the following certifications to better my personal understanding of the security mecahnisms and threats:</p>
       <ul>
-        <li>AWS Certified Developer - Associate</li>
         <li>CompTIA Security+</li>
       </ul>
 
