@@ -52,6 +52,7 @@ public class BlogController {
 	@CrossOrigin
 	@GetMapping("/jobs")
 	public List<Job> getJobs() {
+		LOG.info(String.format("Getting Employment History"));
 		return jobRepository.findAll(Sort.by(Sort.Direction.DESC, "startDate"));
 	}
 	
@@ -71,6 +72,7 @@ public class BlogController {
 				.badRequest()
 				.body(new MessageResponse("Error: Project Name is already taken!"));
 		}
+		LOG.info(String.format("Saving Project %s", project.getProjectName()));
 		projectRepository.save(project);
 		return ResponseEntity.status(HttpStatus.OK).body(new MessageResponse(
 				String.format("Project Added %s", project.getProjectName())));
@@ -79,6 +81,7 @@ public class BlogController {
 	@CrossOrigin
 	@GetMapping("/projects")
 	public List<Project> getProjects() {
+		LOG.info(String.format("Getting Projects"));
 		return projectRepository.findAll();
 	}
 	
@@ -93,6 +96,7 @@ public class BlogController {
 	@CrossOrigin
 	@GetMapping("/education")
 	public List<Degree> getEducation() {
+		LOG.info(String.format("Getting Education"));
 		return degreeRepository.findAll(Sort.by(Sort.Direction.DESC, "startDate"));
 	}
 	
@@ -148,6 +152,7 @@ public class BlogController {
 	@CrossOrigin
 	@GetMapping("/techBlog")
 	public List<TechBlog> getTechBlog() {
+		LOG.info(String.format("Getting Tech Blog Posts"));
 		return techBlogRepository.findAll(Sort.by(Sort.Direction.DESC, "postDate"));
 	}
 	
