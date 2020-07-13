@@ -1,3 +1,3 @@
 #!/bin/bash
 
-nohup ./mvnw spring-boot:run & 
+nohup ./mvnw spring-boot:run & tail -f nohup.out 
