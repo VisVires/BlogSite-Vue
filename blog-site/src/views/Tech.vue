@@ -19,7 +19,7 @@
             <hr>
           </div>
           <div v-else>
-            <h5>Sorry! There seems to be an issue, hit the email button below and let me know!</h5>
+            <h5></h5>
           </div>
         </div>
         <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
@@ -46,7 +46,7 @@
             <hr>
           </div>
           <div v-else>
-            <h5>Sorry! There seems to be an issue, hit the email button below and let me know!</h5>
+            <h5></h5>
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@
             <hr>
           </div>
           <div v-else>
-            <h5>Sorry! There seems to be an issue, hit the email button below and let me know!</h5>
+            <h5></h5>
           </div>
         </div>
       </div>

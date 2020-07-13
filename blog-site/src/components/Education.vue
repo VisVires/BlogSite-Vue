@@ -21,7 +21,7 @@
       <hr>
   </div>
   <div v-else>
-    <h5>Sorry! There seems to be an issue, hit the email button below and let me know!</h5>
+    <h5></h5>
     <hr>
   </div>
 </template>
