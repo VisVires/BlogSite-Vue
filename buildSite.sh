@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# check if docker is running
-if [ "$( docker container inspect -f '{{.State.Running}}' blog-mongo )" == "true" ]; then
-	echo "Docker blog-mongo running"
-fi
-
 # stop current site
 kill -9 `pgrep -f BlogSite`
 
